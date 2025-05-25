@@ -1,0 +1,31 @@
+# Configuration simple du microservice Travel-Service
+server:
+  port: 8083
+
+spring:
+  application:
+    name: travel-service
+
+  # Configuration Neo4j simple
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: password
+
+# Configuration Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+# Configuration de logging simple
+logging:
+  level:
+    fr.dauphine.miageif.msa.travelservice: INFO
+    org.springframework.web: INFO
+    org.springframework.data.neo4j: INFO

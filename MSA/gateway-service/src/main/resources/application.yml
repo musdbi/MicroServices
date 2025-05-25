@@ -1,0 +1,32 @@
+# Configuration simple du Gateway Service
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+
+# Configuration des microservices backend
+microservices:
+  city-service:
+    url: http://localhost:8081
+  poi-service:
+    url: http://localhost:8082
+  travel-service:
+    url: http://localhost:8083
+
+# Configuration Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+# Configuration de logging simple
+logging:
+  level:
+    fr.dauphine.miageif.msa.gatewayservice: INFO
+    org.springframework.web: INFO
