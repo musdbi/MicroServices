@@ -24,7 +24,6 @@
 		<module>poi-service</module>
 		<module>travel-service</module>
 		<module>gateway-service</module>
-		<module>frontend-web</module>
 	</modules>
 
 	<properties>

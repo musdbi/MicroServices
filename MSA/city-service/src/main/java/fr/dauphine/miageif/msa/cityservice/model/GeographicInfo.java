@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Classe pour les informations géographiques
  */
 
-class GeographicInfo {
+public class GeographicInfo {
 
     @JsonProperty("latitude")
     private Double latitude;

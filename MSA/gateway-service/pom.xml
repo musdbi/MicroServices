@@ -13,7 +13,7 @@
 
     <!-- INFORMATIONS SPÉCIFIQUES AU MODULE -->
     <artifactId>gateway-service</artifactId>
-    <n>gateway-service</n>
+    <name>gateway-service</name>
     <description>API Gateway simple - Point d'entrée unique</description>
     <packaging>jar</packaging>
 

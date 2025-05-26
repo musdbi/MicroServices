@@ -37,10 +37,11 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- Embedded MongoDB pour les tests -->
+        <!-- Embedded MongoDB pour les tests - AVEC VERSION -->
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>4.9.2</version>
             <scope>test</scope>
         </dependency>
 

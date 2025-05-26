@@ -1,0 +1,6 @@
+fr\dauphine\miageif\msa\poiservice\model\PointOfInterest.class
+fr\dauphine\miageif\msa\poiservice\dto\PointOfInterestDto.class
+fr\dauphine\miageif\msa\poiservice\service\PointOfInterestService.class
+fr\dauphine\miageif\msa\poiservice\controller\PointOfInterestController.class
+fr\dauphine\miageif\msa\poiservice\PoiServiceApplication.class
+fr\dauphine\miageif\msa\poiservice\repository\PointOfInterestRepository.class

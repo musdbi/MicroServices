@@ -1,0 +1,7 @@
+fr\dauphine\miageif\msa\cityservice\model\GeographicInfo.class
+fr\dauphine\miageif\msa\cityservice\model\City.class
+fr\dauphine\miageif\msa\cityservice\dto\CityDistanceDto.class
+fr\dauphine\miageif\msa\cityservice\controller\CityController.class
+fr\dauphine\miageif\msa\cityservice\repository\CityRepository.class
+fr\dauphine\miageif\msa\cityservice\service\CityService.class
+fr\dauphine\miageif\msa\cityservice\CityServiceApplication.class

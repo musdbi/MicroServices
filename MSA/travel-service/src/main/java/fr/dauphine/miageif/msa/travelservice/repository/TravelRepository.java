@@ -64,28 +64,3 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
             "ORDER BY cityName")
     List<String> findIntermediateCities(@Param("startCity") String startCity, @Param("endCity") String endCity);
 }
-
-/**
- * Repository simple pour les visites de villes
- */
-@Repository
-public interface CityVisitRepository extends Neo4jRepository<CityVisit, Long> {
-
-    /**
-     * Trouve toutes les visites d'un voyage
-     */
-    @Query("MATCH (t:Travel)-[:VISITS]->(c:CityVisit) " +
-            "WHERE t.id = $travelId " +
-            "RETURN c ORDER BY c.dayNumber")
-    List<CityVisit> findVisitsByTravelId(@Param("travelId") Long travelId);
-
-    /**
-     * Trouve les visites par ville
-     */
-    List<CityVisit> findByCityNameIgnoreCase(String cityName);
-
-    /**
-     * Trouve les visites d'une date donnée
-     */
-    List<CityVisit> findByVisitDate(LocalDate visitDate);
-}
