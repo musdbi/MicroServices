@@ -1,4 +1,4 @@
-package fr.dauphine.miageif.msa.travelservice.dto;
+package dto;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -59,7 +59,7 @@ public class TravelDto {
     /**
      * Conversion depuis l'entité
      */
-    public static TravelDto fromEntity(fr.dauphine.miageif.msa.travelservice.model.Travel travel) {
+    public static TravelDto fromEntity(model.Travel travel) {
         List<CityVisitDto> visitDtos = travel.getCityVisits() != null ?
             travel.getCityVisits().stream()
                 .map(CityVisitDto::fromEntity)
@@ -106,7 +106,7 @@ class CityVisitDto {
     /**
      * Conversion depuis l'entité
      */
-    public static CityVisitDto fromEntity(fr.dauphine.miageif.msa.travelservice.model.CityVisit visit) {
+    public static CityVisitDto fromEntity(model.CityVisit visit) {
         return new CityVisitDto(
             visit.getCityName(),
             visit.getVisitDate(),

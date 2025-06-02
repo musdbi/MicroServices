@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/CityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityControllerBis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/dto/CityDistanceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/dto/CityDistanceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/GeographicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/GeographicInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/service/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/CityServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/CityServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/controller/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/controller/CityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/dto/CityDistanceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/dto/CityDistanceDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/model/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/model/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/model/GeographicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/model/GeographicInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/repository/CityRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/repository/CityRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/service/CityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/service/CityService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/application/GatewayServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/controller/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/controller/GatewayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/PoiServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/application/PoiServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/controller/PointOfInterestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/controller/PointOfInterestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/dto/PointOfInterestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/dto/PointOfInterestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/repository/PointOfInterestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/repository/PointOfInterestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/service/PointOfInterestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/service/PointOfInterestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/TravelServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/application/TravelServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/dto/TravelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/dto/TravelDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/CityVisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/CityVisitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2xxPvP8IG5bRid2bXUqIO764Zes" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CityServiceApplication">
+    <configuration name="CityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="city-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="application.CityServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="application.GatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PoiServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="poi-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="application.PoiServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TravelServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="travel-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.dauphine.miageif.msa.travelservice.TravelServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="" />
+      <created>1748876981507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748876981507</updated>
+      <workItem from="1748876982881" duration="699000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

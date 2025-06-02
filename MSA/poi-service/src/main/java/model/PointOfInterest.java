@@ -1,4 +1,4 @@
-package fr.dauphine.miageif.msa.poiservice.model;
+package model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

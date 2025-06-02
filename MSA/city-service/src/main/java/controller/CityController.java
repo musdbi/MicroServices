@@ -1,8 +1,8 @@
-package fr.dauphine.miageif.msa.cityservice.controller;
+package controller;
 
-import fr.dauphine.miageif.msa.cityservice.dto.CityDistanceDto;
-import fr.dauphine.miageif.msa.cityservice.model.City;
-import fr.dauphine.miageif.msa.cityservice.service.CityService;
+import dto.CityDistanceDto;
+import model.City;
+import service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

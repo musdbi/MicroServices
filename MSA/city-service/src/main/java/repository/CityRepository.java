@@ -1,6 +1,6 @@
-package fr.dauphine.miageif.msa.cityservice.repository;
+package repository;
 
-import fr.dauphine.miageif.msa.cityservice.model.City;
+import model.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

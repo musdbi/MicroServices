@@ -1,7 +1,7 @@
-package fr.dauphine.miageif.msa.poiservice.service;
+package service;
 
-import fr.dauphine.miageif.msa.poiservice.model.PointOfInterest;
-import fr.dauphine.miageif.msa.poiservice.repository.PointOfInterestRepository;
+import model.PointOfInterest;
+import repository.PointOfInterestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

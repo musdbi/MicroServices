@@ -1,9 +1,9 @@
-package fr.dauphine.miageif.msa.travelservice.service;
+package service;
 
-import fr.dauphine.miageif.msa.travelservice.model.Travel;
-import fr.dauphine.miageif.msa.travelservice.model.CityVisit;
-import fr.dauphine.miageif.msa.travelservice.repository.TravelRepository;
-import fr.dauphine.miageif.msa.travelservice.repository.CityVisitRepository;
+import model.Travel;
+import model.CityVisit;
+import repository.TravelRepository;
+import repository.CityVisitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

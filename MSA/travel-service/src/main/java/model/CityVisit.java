@@ -1,4 +1,4 @@
-package fr.dauphine.miageif.msa.travelservice.model;
+package model;
 
 import org.springframework.data.neo4j.core.schema.*;
 

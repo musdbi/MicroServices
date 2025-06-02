@@ -1,8 +1,8 @@
-package fr.dauphine.miageif.msa.cityservice.service;
+package service;
 
-import fr.dauphine.miageif.msa.cityservice.dto.CityDistanceDto;
-import fr.dauphine.miageif.msa.cityservice.model.City;
-import fr.dauphine.miageif.msa.cityservice.repository.CityRepository;
+import dto.CityDistanceDto;
+import model.City;
+import repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

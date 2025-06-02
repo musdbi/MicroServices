@@ -1,4 +1,4 @@
-package fr.dauphine.miageif.msa.cityservice.model;
+package model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

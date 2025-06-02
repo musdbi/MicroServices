@@ -1,7 +1,7 @@
-package fr.dauphine.miageif.msa.poiservice.controller;
+package controller;
 
-import fr.dauphine.miageif.msa.poiservice.model.PointOfInterest;
-import fr.dauphine.miageif.msa.poiservice.service.PointOfInterestService;
+import model.PointOfInterest;
+import service.PointOfInterestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

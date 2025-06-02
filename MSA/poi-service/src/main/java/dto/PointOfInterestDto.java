@@ -1,4 +1,4 @@
-package fr.dauphine.miageif.msa.poiservice.dto;
+package dto;
 
 /**
  * DTO simple pour les Points d'Intérêt
@@ -42,7 +42,7 @@ public class PointOfInterestDto {
     /**
      * Méthode utilitaire pour convertir une entité en DTO
      */
-    public static PointOfInterestDto fromEntity(fr.dauphine.miageif.msa.poiservice.model.PointOfInterest poi) {
+    public static PointOfInterestDto fromEntity(model.PointOfInterest poi) {
         String formattedPrice = poi.getPrice() != null ?
             String.format("%.2f €", poi.getPrice()) : "Gratuit";
 

@@ -1,8 +1,8 @@
-package fr.dauphine.miageif.msa.travelservice.controller;
+package controller;
 
-import fr.dauphine.miageif.msa.travelservice.model.Travel;
-import fr.dauphine.miageif.msa.travelservice.model.CityVisit;
-import fr.dauphine.miageif.msa.travelservice.service.TravelService;
+import model.Travel;
+import model.CityVisit;
+import service.TravelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

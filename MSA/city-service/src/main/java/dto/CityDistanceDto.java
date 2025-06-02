@@ -1,4 +1,4 @@
-package fr.dauphine.miageif.msa.cityservice.dto;
+package dto;
 
 /**
  * DTO pour représenter la distance et le temps de trajet entre deux villes

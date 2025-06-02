@@ -1,6 +1,6 @@
-package fr.dauphine.miageif.msa.poiservice.repository;
+package repository;
 
-import fr.dauphine.miageif.msa.poiservice.model.PointOfInterest;
+import model.PointOfInterest;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
