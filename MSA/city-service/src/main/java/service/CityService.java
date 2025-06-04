@@ -85,13 +85,6 @@ public class CityService {
     }
 
     /**
-     * Recherche les villes d'une région
-     */
-    public List<City> getCitiesByRegion(String region) {
-        return cityRepository.findByRegion(region);
-    }
-
-    /**
      * Recherche les villes dans un rayon donné
      * Répond à la requête NoSQL : "Quelles sont les villes situées à moins de 10km d'une ville donnée ?"
      */

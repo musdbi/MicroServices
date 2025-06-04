@@ -30,12 +30,6 @@ public interface CityRepository extends JpaRepository<City, Long> {
     List<City> findByCountry(@Param("country") String country);
 
     /**
-     * Recherche toutes les villes d'une région donnée
-     */
-    @Query("SELECT c FROM City c WHERE c.geographicInfo.region = :region")
-    List<City> findByRegion(@Param("region") String region);
-
-    /**
      * Vérifie si une ville existe par son nom
      */
     boolean existsByCityNameIgnoreCase(String cityName);
