@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Microservice City-Service
  * Responsabilités :
- * - Gestion des villes (CRUD)
+ * - Gestion des villes
  * - Informations géographiques (coordonnées, distances)
  * - Base de données : PostgreSQL avec support JSON
  */

@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Repository simple pour les Voyages Neo4j
- * Focus sur les requêtes essentielles
+ * Repository pour les Voyages Neo4j avec requêtes optimisées
  */
 @Repository
 public interface TravelRepository extends Neo4jRepository<Travel, Long> {
@@ -29,12 +28,12 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
     List<Travel> findByStartDateBetween(LocalDate startDate, LocalDate endDate);
 
     /**
-     * Trouve un voyage avec toutes ses visites de villes
-     * Requête Cypher simple pour récupérer le graphe
+     * Trouve un voyage avec toutes ses visites de villes triées par jour
      */
     @Query("MATCH (t:Travel)-[r:VISITS]->(c:CityVisit) " +
             "WHERE t.id = $travelId " +
-            "RETURN t, collect(r), collect(c)")
+            "RETURN t, collect(r), collect(c) " +
+            "ORDER BY c.dayNumber")
     Optional<Travel> findTravelWithCityVisits(@Param("travelId") Long travelId);
 
     /**
@@ -47,9 +46,7 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
 
     /**
      * Trouve les villes possibles à visiter entre deux villes
-     * Répond à la requête NoSQL : "Étant données une ville de départ et une ville d'arrivée,
-     * quels sont les différentes villes possibles à visiter entre les 2 ?"
-     * Version simplifiée basée sur les voyages existants
+     * Requête NoSQL améliorée avec gestion de l'ordre chronologique
      */
     @Query("MATCH (t:Travel)-[:VISITS]->(start:CityVisit), " +
             "(t)-[:VISITS]->(end:CityVisit), " +
@@ -60,7 +57,35 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
             "AND intermediate.cityName <> $endCity " +
             "AND start.dayNumber < intermediate.dayNumber " +
             "AND intermediate.dayNumber < end.dayNumber " +
-            "RETURN DISTINCT intermediate.cityName as cityName " +
-            "ORDER BY cityName")
+            "WITH DISTINCT intermediate.cityName as cityName, " +
+            "     COUNT(t) as frequency " +
+            "RETURN cityName " +
+            "ORDER BY frequency DESC, cityName ASC")
     List<String> findIntermediateCities(@Param("startCity") String startCity, @Param("endCity") String endCity);
+
+    /**
+     * Trouve les voyages actifs (en cours ou futurs)
+     */
+    @Query("MATCH (t:Travel) " +
+            "WHERE t.endDate >= date() " +
+            "RETURN t " +
+            "ORDER BY t.startDate")
+    List<Travel> findActiveTravels();
+
+    /**
+     * Statistiques sur les villes les plus visitées
+     */
+    @Query("MATCH (t:Travel)-[:VISITS]->(c:CityVisit) " +
+            "RETURN c.cityName as cityName, COUNT(c) as visitCount " +
+            "ORDER BY visitCount DESC " +
+            "LIMIT 10")
+    List<CityVisitStat> getMostVisitedCities();
+
+    /**
+     * Interface pour les statistiques
+     */
+    interface CityVisitStat {
+        String getCityName();
+        Long getVisitCount();
+    }
 }

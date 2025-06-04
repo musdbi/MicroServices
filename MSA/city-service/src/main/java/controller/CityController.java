@@ -109,16 +109,6 @@ public class CityController {
     }
 
     /**
-     * GET /api/cities/region/{region}
-     * Récupère toutes les villes d'une région
-     */
-    @GetMapping("/region/{region}")
-    public ResponseEntity<List<City>> getCitiesByRegion(@PathVariable String region) {
-        List<City> cities = cityService.getCitiesByRegion(region);
-        return ResponseEntity.ok(cities);
-    }
-
-    /**
      * GET /api/cities/nearby?city={cityName}&radius={radiusKm}
      * Trouve les villes dans un rayon donné
      * Répond à la requête NoSQL : "Quelles sont les villes situées à moins de 10km d'une ville donnée ?"

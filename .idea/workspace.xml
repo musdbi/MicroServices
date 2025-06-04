@@ -5,80 +5,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/CityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityControllerBis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/dto/CityDistanceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/dto/CityDistanceDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/GeographicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/GeographicInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/service/CityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/CityServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/CityServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/controller/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/controller/CityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/dto/CityDistanceDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/dto/CityDistanceDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/model/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/model/City.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/model/GeographicInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/model/GeographicInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/repository/CityRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/repository/CityRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/fr/dauphine/miageif/msa/cityservice/service/CityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/service/CityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/application/GatewayServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/controller/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/controller/GatewayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/PoiServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/application/PoiServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/controller/PointOfInterestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/controller/PointOfInterestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/dto/PointOfInterestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/dto/PointOfInterestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/repository/PointOfInterestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/repository/PointOfInterestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/service/PointOfInterestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/service/PointOfInterestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/TravelServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/application/TravelServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/dto/TravelDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/dto/TravelDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/CityVisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/CityVisitRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2xxPvP8IG5bRid2bXUqIO764Zes" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Programmation\IntelliJ\MicroServices\MSA" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -138,7 +122,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748876981507</updated>
-      <workItem from="1748876982881" duration="699000" />
+      <workItem from="1748876982881" duration="1891000" />
+      <workItem from="1748885219609" duration="2499000" />
+      <workItem from="1749039549806" duration="1355000" />
     </task>
     <servers />
   </component>

@@ -17,16 +17,12 @@ public class GeographicInfo {
     @JsonProperty("country")
     private String country;
 
-    @JsonProperty("region")
-    private String region;
-
     public GeographicInfo() {}
 
-    public GeographicInfo(Double latitude, Double longitude, String country, String region) {
+    public GeographicInfo(Double latitude, Double longitude, String country) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.country = country;
-        this.region = region;
     }
 
     public Double getLatitude() {
@@ -53,21 +49,12 @@ public class GeographicInfo {
         this.country = country;
     }
 
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-
     @Override
     public String toString() {
         return "GeographicInfo{" +
                 "latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", country='" + country + '\'' +
-                ", region='" + region + '\'' +
                 '}';
     }
 }
