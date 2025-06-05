@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="">
+    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Arranging earth radius">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/GeographicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/model/GeographicInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +91,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TravelServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="travel-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="application.TravelServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TravelServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="travel-service" />
@@ -125,6 +126,7 @@
       <workItem from="1748876982881" duration="1891000" />
       <workItem from="1748885219609" duration="2499000" />
       <workItem from="1749039549806" duration="1355000" />
+      <workItem from="1749126935228" duration="5760000" />
     </task>
     <servers />
   </component>
