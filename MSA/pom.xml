@@ -21,7 +21,7 @@
 	<!-- DÉCLARATION DES MODULES ENFANTS -->
 	<modules>
 		<module>city-service</module>
-		<module>poi-service</module>
+		<module>tourism-service</module>
 		<module>travel-service</module>
 		<module>gateway-service</module>
 	</modules>

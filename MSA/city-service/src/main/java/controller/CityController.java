@@ -160,4 +160,9 @@ public class CityController {
     public ResponseEntity<String> health() {
         return ResponseEntity.ok("City Service is running!");
     }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok("Service running: " + this.getClass().getSimpleName());
+    }
 }

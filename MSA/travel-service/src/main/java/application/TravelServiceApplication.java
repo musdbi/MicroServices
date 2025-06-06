@@ -2,6 +2,7 @@ package application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Microservice Travel-Service
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * - Base de données : Neo4j (graphes de relations)
  */
 @SpringBootApplication
+@ComponentScan(basePackages = {"controller", "service", "repository", "model"})
 public class TravelServiceApplication {
 
     public static void main(String[] args) {

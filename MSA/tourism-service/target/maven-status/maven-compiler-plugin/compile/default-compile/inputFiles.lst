@@ -1,0 +1,17 @@
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\application\TourismServiceApplication.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\controller\AccommodationController.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\controller\ActivityController.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\controller\PointOfInterestController.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\dto\AccommodationDto.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\dto\ActivityDto.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\dto\PointOfInterestDto.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\model\Accommodation.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\model\Activity.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\model\GeographicInfo.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\model\PointOfInterest.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\repository\AccommodationRepository.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\repository\ActivityRepository.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\repository\PointOfInterestRepository.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\service\AccommodationService.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\service\ActivityService.java
+C:\Programmation\IntelliJ\MicroServices\MSA\tourism-service\src\main\java\service\PointOfInterestService.java

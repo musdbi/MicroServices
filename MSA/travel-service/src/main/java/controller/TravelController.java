@@ -1,8 +1,13 @@
 package controller;
 
 import model.Travel;
+import model.TravelDay;
 import model.CityVisit;
 import service.TravelService;
+import dto.TravelDto;
+import dto.TravelDayDto;
+import dto.CityVisitDto;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Controller REST simple pour la gestion des voyages
+ * Controller REST simplifié pour la gestion des voyages
  */
 @RestController
 @RequestMapping("/api/travels")
@@ -23,59 +28,47 @@ public class TravelController {
     @Autowired
     private TravelService travelService;
 
-    /**
-     * GET /api/travels
-     * Récupère tous les voyages
-     */
+    // ===============================
+    // CRUD BASIQUE VOYAGES
+    // ===============================
+
     @GetMapping
-    public ResponseEntity<List<Travel>> getAllTravels() {
+    public ResponseEntity<List<TravelDto>> getAllTravels() {
         List<Travel> travels = travelService.getAllTravels();
-        return ResponseEntity.ok(travels);
+        List<TravelDto> travelDtos = travels.stream()
+                .map(travelService::convertToDto)
+                .toList();
+        return ResponseEntity.ok(travelDtos);
     }
 
-    /**
-     * GET /api/travels/{id}
-     * Récupère un voyage par son ID avec ses visites
-     */
     @GetMapping("/{id}")
-    public ResponseEntity<Travel> getTravelById(@PathVariable Long id) {
+    public ResponseEntity<TravelDto> getTravelById(@PathVariable Long id) {
         Optional<Travel> travel = travelService.getTravelById(id);
-        return travel.map(ResponseEntity::ok)
+        return travel.map(t -> ResponseEntity.ok(travelService.convertToDto(t)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * POST /api/travels
-     * Crée un nouveau voyage
-     */
     @PostMapping
-    public ResponseEntity<Travel> createTravel(@Valid @RequestBody Travel travel) {
+    public ResponseEntity<TravelDto> createTravel(@Valid @RequestBody TravelDto travelDto) {
         try {
-            Travel createdTravel = travelService.createTravel(travel);
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdTravel);
+            Travel createdTravel = travelService.createTravel(travelDto);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(travelService.convertToDto(createdTravel));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
-    /**
-     * PUT /api/travels/{id}
-     * Met à jour un voyage existant
-     */
     @PutMapping("/{id}")
-    public ResponseEntity<Travel> updateTravel(@PathVariable Long id, @Valid @RequestBody Travel travel) {
+    public ResponseEntity<TravelDto> updateTravel(@PathVariable Long id, @Valid @RequestBody TravelDto travelDto) {
         try {
-            Travel updatedTravel = travelService.updateTravel(id, travel);
-            return ResponseEntity.ok(updatedTravel);
+            Travel updatedTravel = travelService.updateTravel(id, travelDto);
+            return ResponseEntity.ok(travelService.convertToDto(updatedTravel));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
         }
     }
 
-    /**
-     * DELETE /api/travels/{id}
-     * Supprime un voyage
-     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTravel(@PathVariable Long id) {
         try {
@@ -86,71 +79,96 @@ public class TravelController {
         }
     }
 
-    /**
-     * POST /api/travels/{id}/visits
-     * Ajoute une visite de ville à un voyage
-     */
-    @PostMapping("/{id}/visits")
-    public ResponseEntity<CityVisit> addCityVisitToTravel(@PathVariable Long id, @Valid @RequestBody CityVisit cityVisit) {
+    // ===============================
+    // GESTION DES JOURNÉES
+    // ===============================
+
+    @GetMapping("/{id}/days")
+    public ResponseEntity<List<TravelDayDto>> getTravelDays(@PathVariable Long id) {
+        List<TravelDay> days = travelService.getTravelDays(id);
+        List<TravelDayDto> dayDtos = days.stream()
+                .map(travelService::convertTravelDayToDto)
+                .toList();
+        return ResponseEntity.ok(dayDtos);
+    }
+
+    @PostMapping("/{id}/days")
+    public ResponseEntity<TravelDayDto> addTravelDay(@PathVariable Long id, @Valid @RequestBody TravelDayDto dayDto) {
         try {
-            CityVisit createdVisit = travelService.addCityVisitToTravel(id, cityVisit);
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdVisit);
+            TravelDay createdDay = travelService.addTravelDay(id, dayDto);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(travelService.convertTravelDayToDto(createdDay));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
-    /**
-     * GET /api/travels/{id}/visits
-     * Récupère les visites d'un voyage
-     */
-    @GetMapping("/{id}/visits")
-    public ResponseEntity<List<CityVisit>> getCityVisitsByTravel(@PathVariable Long id) {
-        List<CityVisit> visits = travelService.getCityVisitsByTravel(id);
-        return ResponseEntity.ok(visits);
+    @DeleteMapping("/{travelId}/days/{dayId}")
+    public ResponseEntity<Void> deleteTravelDay(@PathVariable Long travelId, @PathVariable Long dayId) {
+        try {
+            travelService.deleteTravelDay(travelId, dayId);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    /**
-     * GET /api/travels/city/{cityName}
-     * Récupère les voyages qui visitent une ville donnée
-     */
-    @GetMapping("/city/{cityName}")
-    public ResponseEntity<List<Travel>> getTravelsByCityVisited(@PathVariable String cityName) {
-        List<Travel> travels = travelService.getTravelsByCityVisited(cityName);
-        return ResponseEntity.ok(travels);
+    // ===============================
+    // GESTION DES VISITES
+    // ===============================
+
+    @PostMapping("/{travelId}/days/{dayId}/visits")
+    public ResponseEntity<CityVisitDto> addCityVisit(
+            @PathVariable Long travelId, @PathVariable Long dayId, @Valid @RequestBody CityVisitDto visitDto) {
+        try {
+            CityVisit createdVisit = travelService.addCityVisit(travelId, dayId, visitDto);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(travelService.convertCityVisitToDto(createdVisit));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
+    @DeleteMapping("/visits/{visitId}")
+    public ResponseEntity<Void> deleteCityVisit(@PathVariable Long visitId) {
+        try {
+            travelService.deleteCityVisit(visitId);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    // ===============================
+    // REQUÊTE NOSQL PRINCIPALE
+    // ===============================
+
     /**
-     * GET /api/travels/intermediate-cities?start={startCity}&end={endCity}
-     * Trouve les villes possibles à visiter entre deux villes
-     * Répond à la requête NoSQL : "Étant données une ville de départ et une ville d'arrivée,
-     * quels sont les différentes villes possibles à visiter entre les 2 ?"
+     * REQUÊTE NOSQL : Villes possibles à visiter entre deux villes
      */
     @GetMapping("/intermediate-cities")
     public ResponseEntity<List<String>> findIntermediateCities(
-            @RequestParam String start,
-            @RequestParam String end) {
+            @RequestParam String start, @RequestParam String end) {
         List<String> intermediateCities = travelService.findIntermediateCities(start, end);
         return ResponseEntity.ok(intermediateCities);
     }
 
-    /**
-     * GET /api/travels/search?name={travelName}
-     * Recherche un voyage par nom
-     */
-    @GetMapping("/search")
-    public ResponseEntity<Travel> getTravelByName(@RequestParam String name) {
-        Optional<Travel> travel = travelService.getTravelByName(name);
-        return travel.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    @GetMapping("/city/{cityName}")
+    public ResponseEntity<List<TravelDto>> getTravelsByCityVisited(@PathVariable String cityName) {
+        List<Travel> travels = travelService.getTravelsByCityVisited(cityName);
+        List<TravelDto> travelDtos = travels.stream()
+                .map(travelService::convertToDto)
+                .toList();
+        return ResponseEntity.ok(travelDtos);
     }
 
-    /**
-     * GET /api/travels/health
-     * Endpoint de santé
-     */
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("Travel Service is running!");
+        return ResponseEntity.ok("Travel Service is running! 🚀");
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok("Service running: " + this.getClass().getSimpleName());
     }
 }

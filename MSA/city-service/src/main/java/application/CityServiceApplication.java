@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * - Informations géographiques (coordonnées, distances)
  * - Base de données : PostgreSQL avec support JSON
  */
+
 @SpringBootApplication
 public class CityServiceApplication {
 

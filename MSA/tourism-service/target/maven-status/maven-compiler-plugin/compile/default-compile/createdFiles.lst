@@ -1,0 +1,17 @@
+repository\ActivityRepository.class
+controller\ActivityController.class
+repository\AccommodationRepository.class
+dto\ActivityDto.class
+repository\PointOfInterestRepository.class
+model\PointOfInterest.class
+service\PointOfInterestService.class
+dto\PointOfInterestDto.class
+service\ActivityService.class
+controller\PointOfInterestController.class
+service\AccommodationService.class
+controller\AccommodationController.class
+model\GeographicInfo.class
+application\TourismServiceApplication.class
+model\Activity.class
+model\Accommodation.class
+dto\AccommodationDto.class

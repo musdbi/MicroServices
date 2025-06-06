@@ -10,7 +10,7 @@ spring:
 microservices:
   city-service:
     url: http://localhost:8081
-  poi-service:
+  tourism-service:
     url: http://localhost:8082
   travel-service:
     url: http://localhost:8083

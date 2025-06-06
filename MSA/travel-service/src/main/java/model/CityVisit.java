@@ -1,15 +1,14 @@
 package model;
 
 import org.springframework.data.neo4j.core.schema.*;
-import org.springframework.data.neo4j.core.schema.Relationship;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Min;
-
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 /**
- * Visite de ville - Nœud Neo4j avec relation bidirectionnelle
+ * Visite de ville enrichie - Nœud Neo4j
+ * Contient les références vers POI et activités du poi-service
  */
 @Node("CityVisit")
 public class CityVisit {
@@ -18,26 +17,30 @@ public class CityVisit {
     private Long id;
 
     @NotBlank(message = "City name is required")
-    private String cityName; // Référence à la ville (du city-service)
+    private String cityName;
 
-    @NotNull(message = "Visit date is required")
+    private Long cityId; // Référence vers city-service
     private LocalDate visitDate;
+    private LocalTime arrivalTime;   // Heure d'arrivée dans la ville
+    private LocalTime departureTime; // Heure de départ
+    private String transportMode;    // train, car, bus, plane, walking
 
-    @NotNull(message = "Day number is required")
-    @Min(value = 1, message = "Day number must be positive")
-    private Integer dayNumber; // Jour du voyage
+    // Références vers poi-service (IDs seulement, objets récupérés via REST)
+    private List<String> plannedPOIIds;      // POI à visiter
+    private List<String> plannedActivityIds; // Activités prévues
 
-    // Relation inverse vers le voyage
-    @Relationship(type = "VISITS", direction = Relationship.Direction.INCOMING)
-    private Travel travel;
+    // Informations de visite
+    private String visitDescription;
+    private Double visitBudget;
+    private String visitStatus; // planned, in_progress, completed, cancelled
 
     // Constructeurs
     public CityVisit() {}
 
-    public CityVisit(String cityName, LocalDate visitDate, Integer dayNumber) {
+    public CityVisit(String cityName, Long cityId, LocalDate visitDate) {
         this.cityName = cityName;
+        this.cityId = cityId;
         this.visitDate = visitDate;
-        this.dayNumber = dayNumber;
     }
 
     // Getters et Setters
@@ -47,14 +50,35 @@ public class CityVisit {
     public String getCityName() { return cityName; }
     public void setCityName(String cityName) { this.cityName = cityName; }
 
+    public Long getCityId() { return cityId; }
+    public void setCityId(Long cityId) { this.cityId = cityId; }
+
     public LocalDate getVisitDate() { return visitDate; }
     public void setVisitDate(LocalDate visitDate) { this.visitDate = visitDate; }
 
-    public Integer getDayNumber() { return dayNumber; }
-    public void setDayNumber(Integer dayNumber) { this.dayNumber = dayNumber; }
+    public LocalTime getArrivalTime() { return arrivalTime; }
+    public void setArrivalTime(LocalTime arrivalTime) { this.arrivalTime = arrivalTime; }
 
-    public Travel getTravel() { return travel; }
-    public void setTravel(Travel travel) { this.travel = travel; }
+    public LocalTime getDepartureTime() { return departureTime; }
+    public void setDepartureTime(LocalTime departureTime) { this.departureTime = departureTime; }
+
+    public String getTransportMode() { return transportMode; }
+    public void setTransportMode(String transportMode) { this.transportMode = transportMode; }
+
+    public List<String> getPlannedPOIIds() { return plannedPOIIds; }
+    public void setPlannedPOIIds(List<String> plannedPOIIds) { this.plannedPOIIds = plannedPOIIds; }
+
+    public List<String> getPlannedActivityIds() { return plannedActivityIds; }
+    public void setPlannedActivityIds(List<String> plannedActivityIds) { this.plannedActivityIds = plannedActivityIds; }
+
+    public String getVisitDescription() { return visitDescription; }
+    public void setVisitDescription(String visitDescription) { this.visitDescription = visitDescription; }
+
+    public Double getVisitBudget() { return visitBudget; }
+    public void setVisitBudget(Double visitBudget) { this.visitBudget = visitBudget; }
+
+    public String getVisitStatus() { return visitStatus; }
+    public void setVisitStatus(String visitStatus) { this.visitStatus = visitStatus; }
 
     @Override
     public String toString() {
@@ -62,7 +86,10 @@ public class CityVisit {
                 "id=" + id +
                 ", cityName='" + cityName + '\'' +
                 ", visitDate=" + visitDate +
-                ", dayNumber=" + dayNumber +
+                ", arrivalTime=" + arrivalTime +
+                ", departureTime=" + departureTime +
+                ", transportMode='" + transportMode + '\'' +
+                ", visitStatus='" + visitStatus + '\'' +
                 '}';
     }
 }

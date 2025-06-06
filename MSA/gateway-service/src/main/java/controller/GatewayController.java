@@ -30,8 +30,8 @@ public class GatewayController {
     @Value("${microservices.city-service.url:http://localhost:8081}")
     private String cityServiceUrl;
 
-    @Value("${microservices.poi-service.url:http://localhost:8082}")
-    private String poiServiceUrl;
+    @Value("${microservices.tourism-service.url:http://localhost:8082}")
+    private String tourismServiceUrl;
 
     @Value("${microservices.travel-service.url:http://localhost:8083}")
     private String travelServiceUrl;
@@ -72,18 +72,18 @@ public class GatewayController {
     }
 
     /**
-     * Route TOUTES les requêtes /api/poi/** vers poi-service
+     * Route TOUTES les requêtes /api/tourism/** vers tourism-service
      */
-    @RequestMapping(value = "/poi/**", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-    public ResponseEntity<String> routeToPoiService(
+    @RequestMapping(value = "/tourism/**", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+    public ResponseEntity<String> routeToTourismService(
             HttpServletRequest request,
             @RequestBody(required = false) Object body) {
 
         String path = request.getRequestURI().replace("/api", "");
         String queryString = request.getQueryString();
-        String fullUrl = poiServiceUrl + "/api" + path + (queryString != null ? "?" + queryString : "");
+        String fullUrl = tourismServiceUrl + "/api" + path + (queryString != null ? "?" + queryString : "");
 
-        logger.info("Routing to poi-service: {} {}", request.getMethod(), fullUrl);
+        logger.info("Routing to tourism-service: {} {}", request.getMethod(), fullUrl);
 
         try {
             HttpHeaders headers = new HttpHeaders();
@@ -97,12 +97,12 @@ public class GatewayController {
                     String.class
             );
 
-            logger.info("POI-service responded with status: {}", response.getStatusCode());
+            logger.info("Tourism-service responded with status: {}", response.getStatusCode());
             return response;
 
         } catch (Exception e) {
-            logger.error("Error calling poi-service: {}", e.getMessage());
-            return ResponseEntity.status(500).body("{\"error\":\"POI service unavailable: " + e.getMessage() + "\"}");
+            logger.error("Error calling tourism-service: {}", e.getMessage());
+            return ResponseEntity.status(500).body("{\"error\":\"tourism service unavailable: " + e.getMessage() + "\"}");
         }
     }
 
@@ -146,7 +146,7 @@ public class GatewayController {
      */
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("{\"status\":\"Gateway Service is running! 🚪\",\"services\":{\"city\":\"" + cityServiceUrl + "\",\"poi\":\"" + poiServiceUrl + "\",\"travel\":\"" + travelServiceUrl + "\"}}");
+        return ResponseEntity.ok("{\"status\":\"Gateway Service is running! 🚪\",\"services\":{\"city\":\"" + cityServiceUrl + "\",\"tourism\":\"" + tourismServiceUrl + "\",\"travel\":\"" + travelServiceUrl + "\"}}");
     }
 
     /**
@@ -159,12 +159,12 @@ public class GatewayController {
                 "gateway": "http://localhost:8080",
                 "routes": {
                     "cities": "/api/cities/**",
-                    "poi": "/api/poi/**", 
+                    "tourism": "/api/tourism/**",
                     "travels": "/api/travels/**"
                 },
                 "services": {
                     "city-service": "%s",
-                    "poi-service": "%s",
+                    "tourism-service": "%s",
                     "travel-service": "%s"
                 },
                 "endpoints": {
@@ -172,6 +172,11 @@ public class GatewayController {
                     "routes": "/api/routes"
                 }
             }
-            """, cityServiceUrl, poiServiceUrl, travelServiceUrl));
+            """, cityServiceUrl, tourismServiceUrl, travelServiceUrl));
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        return ResponseEntity.ok("Service running: " + this.getClass().getSimpleName());
     }
 }
