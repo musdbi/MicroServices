@@ -1,38 +1,31 @@
-# Configuration du microservice City-Service
 server:
-  port: 8081  # Port spécifique à ce service
+  port: 8081
 
 spring:
   application:
     name: city-service
 
-  # Configuration PostgreSQL
+  # Configuration Supabase PostgreSQL
   datasource:
-    url: jdbc:postgresql://localhost:5432/msa_cities
-    username: postgres
-    password: postgres
+    url: postgresql://postgres:[MicroServices14261998@]@db.ztcevidlhyajldpvjfod.supabase.co:5432/postgres
     driver-class-name: org.postgresql.Driver
 
   # Configuration JPA/Hibernate
   jpa:
     hibernate:
-      ddl-auto: create-drop  # En développement, recrée les tables
+      ddl-auto: create-drop  # Crée les tables automatiquement
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-    show-sql: true  # Affiche les requêtes SQL (développement)
+    show-sql: true
 
-  # Configuration des profils
-  profiles:
-    active: dev
-
-# Configuration Actuator (monitoring)
+# Configuration Actuator
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info
   endpoint:
     health:
       show-details: always
@@ -40,24 +33,5 @@ management:
 # Configuration de logging
 logging:
   level:
-    fr.dauphine.miageif.msa.cityservice: DEBUG
-    org.springframework.web: DEBUG
-    org.hibernate.SQL: DEBUG
-
----
-# Profil pour les tests (H2 en mémoire)
-spring:
-  config:
-    activate:
-      on-profile: test
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+    fr.dauphine.miageif.msa.cityservice: INFO
+    org.springframework.web: INFO

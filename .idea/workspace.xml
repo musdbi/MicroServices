@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Adding activity and accomodation">
+    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Plus de souci de packages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/application/TourismServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/application/TourismServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/application/TravelServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/application/TravelServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,7 @@
       <workItem from="1749126935228" duration="5895000" />
       <workItem from="1749135714381" duration="707000" />
       <workItem from="1749200901664" duration="4995000" />
-      <workItem from="1749219084488" duration="3286000" />
+      <workItem from="1749219084488" duration="4562000" />
     </task>
     <task id="LOCAL-00001" summary="Adding activity and accomodation">
       <option name="closed" value="true" />
@@ -159,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749222132667</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Plus de souci de packages">
+      <option name="closed" value="true" />
+      <created>1749222409210</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749222409210</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +174,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding activity and accomodation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding activity and accomodation" />
+    <MESSAGE value="Plus de souci de packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Plus de souci de packages" />
   </component>
 </project>
