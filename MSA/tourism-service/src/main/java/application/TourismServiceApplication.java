@@ -3,6 +3,7 @@ package application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
  * Microservice POI-Service
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"controller", "service", "repository", "model"})
+@EnableMongoRepositories(basePackages = "repository")
 public class TourismServiceApplication {
 
     public static void main(String[] args) {

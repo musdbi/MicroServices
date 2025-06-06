@@ -5,85 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Adding activity and accomodation">
-      <change afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/controller/PointOfInterestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/dto/PointOfInterestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/repository/PointOfInterestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/service/PointOfInterestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/application/CityServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/controller/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/application/CityServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/application/CityServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/CityServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/controller/CityController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/dto/CityDistanceDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/model/City.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/model/GeographicInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/repository/CityRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/cityservice/service/CityService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/controller/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/controller/CityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/controller/GatewayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/src/main/java/controller/GatewayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/classes/controller/GatewayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/target/classes/controller/GatewayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/classes/fr/dauphine/miageif/msa/gatewayservice/GatewayServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/classes/fr/dauphine/miageif/msa/gatewayservice/controller/GatewayController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/application/PoiServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/application/TourismServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/controller/PointOfInterestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/dto/PointOfInterestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/Accommodation.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/Accommodation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/GeographicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/GeographicInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/model/PointOfInterest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/PointOfInterest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/repository/PointOfInterestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/java/service/PointOfInterestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/application/PoiServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/controller/PointOfInterestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/classes/controller/PointOfInterestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/dto/PointOfInterestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/classes/dto/PointOfInterestDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/fr/dauphine/miageif/msa/poiservice/PoiServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/model/PointOfInterest.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/classes/model/PointOfInterest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/repository/PointOfInterestRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/classes/repository/PointOfInterestRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/classes/service/PointOfInterestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/classes/service/PointOfInterestService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/poi-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/application/TourismServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/application/TourismServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/application/TravelServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/application/TravelServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/dto/TravelDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/CityVisit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/CityVisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/CityVisitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/repository/TravelRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/controller/TravelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/controller/TravelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/dto/CityVisitDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/dto/CityVisitDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/dto/TravelDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/dto/TravelDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/TravelServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/controller/TravelController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/dto/CityVisitDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/dto/TravelDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/model/CityVisit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/model/Travel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/repository/CityVisitRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/repository/TravelRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/fr/dauphine/miageif/msa/travelservice/service/TravelService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/model/CityVisit.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/model/CityVisit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/model/Travel.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/model/Travel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/repository/CityVisitRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/repository/CityVisitRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/repository/TravelRepository$CityVisitStat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/repository/TravelRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/repository/TravelRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/service/TravelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/service/TravelService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +133,7 @@
       <workItem from="1749126935228" duration="5895000" />
       <workItem from="1749135714381" duration="707000" />
       <workItem from="1749200901664" duration="4995000" />
-      <workItem from="1749219084488" duration="3011000" />
+      <workItem from="1749219084488" duration="3286000" />
     </task>
     <task id="LOCAL-00001" summary="Adding activity and accomodation">
       <option name="closed" value="true" />
@@ -218,7 +143,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749133101400</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding activity and accomodation">
+      <option name="closed" value="true" />
+      <created>1749222121741</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749222121741</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding activity and accomodation">
+      <option name="closed" value="true" />
+      <created>1749222132667</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749222132667</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
