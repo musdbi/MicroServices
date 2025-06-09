@@ -10,7 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<!-- INFORMATIONS DU PROJET PARENT -->
+	<!-- INFORMATIONS DU PROJET PARENT - TEST messages -->
 	<groupId>fr.dauphine.miageIf.msa</groupId>
 	<artifactId>MSA-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
