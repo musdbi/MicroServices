@@ -5,22 +5,21 @@ spring:
   application:
     name: city-service
 
-  # Configuration Supabase PostgreSQL
   datasource:
-    url: postgresql://postgres:[MicroServices14261998@]@db.ztcevidlhyajldpvjfod.supabase.co:5432/postgres
+    url: jdbc:postgresql://ep-soft-mud-a2ehdbf8-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_Ibe3at4MDPnm
     driver-class-name: org.postgresql.Driver
 
-  # Configuration JPA/Hibernate
   jpa:
     hibernate:
-      ddl-auto: create-drop  # Crée les tables automatiquement
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
 
-# Configuration Actuator
 management:
   endpoints:
     web:
@@ -30,7 +29,6 @@ management:
     health:
       show-details: always
 
-# Configuration de logging
 logging:
   level:
     fr.dauphine.miageif.msa.cityservice: INFO
