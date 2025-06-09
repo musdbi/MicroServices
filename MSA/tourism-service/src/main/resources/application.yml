@@ -1,4 +1,4 @@
-# Configuration simple du microservice POI-Service
+# Configuration du microservice Tourism-Service
 server:
   port: 8082
 
@@ -6,12 +6,10 @@ spring:
   application:
     name: tourism-service
 
-  # Configuration MongoDB simple
+  # Configuration MongoDB Atlas
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: msa_tourism
+      uri: mongodb+srv://musdbi:MS14261998@cluster0.oe4xo87.mongodb.net/msa_tourism?retryWrites=true&w=majority&appName=Cluster0
 
 # Configuration Actuator
 management:
@@ -23,8 +21,9 @@ management:
     health:
       show-details: always
 
-# Configuration de logging simple
+# Configuration de logging
 logging:
   level:
-    fr.dauphine.miageif.msa.poiservice: INFO
-    org.springframework.web: INFO
+    org.springframework.data.mongodb: DEBUG
+    service: INFO
+    controller: INFO

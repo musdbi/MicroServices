@@ -2,6 +2,7 @@ package repository;
 
 import model.Accommodation;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,9 +30,6 @@ public interface AccommodationRepository extends MongoRepository<Accommodation, 
 
     // Recherche par ville et gamme de prix
     List<Accommodation> findByCityNameIgnoreCaseAndPricePerNightBetween(String cityName, Double minPrice, Double maxPrice);
-
-    // Hébergements avec au moins X avis
-    List<Accommodation> findByReviewsSizeGreaterThanEqual(int minReviews);
 
     // Vérifier l'existence par nom et ville
     boolean existsByNameIgnoreCaseAndCityNameIgnoreCase(String name, String cityName);

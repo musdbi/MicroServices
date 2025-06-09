@@ -6,12 +6,12 @@ spring:
   application:
     name: travel-service
 
-  # Configuration Neo4j simple
+  # Configuration Neo4j AuraDB
   neo4j:
-    uri: bolt://localhost:7687
+    uri: neo4j+s://cb89e083.databases.neo4j.io
     authentication:
       username: neo4j
-      password: password
+      password: E5p_PQy5sfZGEC7FSBbhExB6Tbrax-BAGCCrz8rPYV8
 
 # Configuration Actuator
 management:
@@ -26,6 +26,6 @@ management:
 # Configuration de logging simple
 logging:
   level:
-    fr.dauphine.miageif.msa.travelservice: INFO
-    org.springframework.web: INFO
     org.springframework.data.neo4j: INFO
+    controller: INFO
+    service: INFO
