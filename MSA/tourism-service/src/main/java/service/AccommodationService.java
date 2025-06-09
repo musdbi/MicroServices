@@ -84,11 +84,6 @@ public class AccommodationService {
         return accommodationRepository.findByCityNameIgnoreCaseAndPricePerNightBetween(cityName, minPrice, maxPrice);
     }
 
-    // Hébergements avec au moins X avis
-    public List<Accommodation> getAccommodationsWithMinimumReviews(int minReviews) {
-        return accommodationRepository.findByReviewsSizeGreaterThanEqual(minReviews);
-    }
-
     // Ajouter un avis
     public Accommodation addReview(String accommodationId, String review) {
         return accommodationRepository.findById(accommodationId).map(accommodation -> {

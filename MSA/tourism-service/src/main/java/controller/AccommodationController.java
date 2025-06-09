@@ -122,16 +122,6 @@ public class AccommodationController {
         return ResponseEntity.ok(accommodationDtos);
     }
 
-    // Hébergements avec au moins X avis
-    @GetMapping("/min-reviews/{minReviews}")
-    public ResponseEntity<List<AccommodationDto>> getAccommodationsWithMinimumReviews(@PathVariable int minReviews) {
-        List<Accommodation> accommodations = accommodationService.getAccommodationsWithMinimumReviews(minReviews);
-        List<AccommodationDto> accommodationDtos = accommodations.stream()
-                .map(accommodationService::convertToDto)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(accommodationDtos);
-    }
-
     // Ajouter un avis
     @PostMapping("/{id}/reviews")
     public ResponseEntity<AccommodationDto> addReview(@PathVariable String id, @RequestBody String review) {
