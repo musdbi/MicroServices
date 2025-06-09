@@ -24,9 +24,9 @@ public interface CityRepository extends JpaRepository<City, Long> {
 
     /**
      * Recherche toutes les villes d'un pays donné
-     * Utilise une requête JSON pour interroger le champ geographicInfo
      */
-    @Query("SELECT c FROM City c WHERE c.geographicInfo.country = :country")
+    @Query(value = "SELECT * FROM cities c WHERE c.geographic_info->>'country' = :country",
+            nativeQuery = true)
     List<City> findByCountry(@Param("country") String country);
 
     /**

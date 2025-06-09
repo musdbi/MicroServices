@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Plus de souci de packages">
+    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Connection avec PSQL RÉUSSIE !">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,10 +41,17 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
     "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "Spring Boot.CityServiceApplication.executor": "Run",
+    "git-widget-placeholder": "pcDauphine",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Programmation/WS/MicroServices",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,6 +74,20 @@
         <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
+    </option>
+    <option name="hiddenConfigurations">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <set>
+              <option value="GatewayServiceApplication" />
+              <option value="TourismServiceApplication" />
+              <option value="TravelServiceApplication" />
+              <option value="TravelServiceApplication (1)" />
+            </set>
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.CityServiceApplication">
@@ -114,11 +135,12 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26574.91" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26574.91" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="" />
@@ -133,6 +155,8 @@
       <workItem from="1749135714381" duration="707000" />
       <workItem from="1749200901664" duration="4995000" />
       <workItem from="1749219084488" duration="4562000" />
+      <workItem from="1749491005756" duration="266000" />
+      <workItem from="1749491457613" duration="2100000" />
     </task>
     <task id="LOCAL-00001" summary="Adding activity and accomodation">
       <option name="closed" value="true" />
@@ -166,7 +190,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749222409210</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Test commit nouvelle branche">
+      <option name="closed" value="true" />
+      <created>1749491080987</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749491080987</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Connection avec PSQL RÉUSSIE !">
+      <option name="closed" value="true" />
+      <created>1749493298109</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749493298120</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +215,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding activity and accomodation" />
     <MESSAGE value="Plus de souci de packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plus de souci de packages" />
+    <MESSAGE value="Test commit nouvelle branche" />
+    <MESSAGE value="Connection avec PSQL RÉUSSIE !" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connection avec PSQL RÉUSSIE !" />
   </component>
 </project>
