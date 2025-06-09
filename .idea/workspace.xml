@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Connection avec PSQL RÉUSSIE !">
+    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Travel-Service Config DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/src/main/java/repository/CityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/city-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/city-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/application/TravelServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/application/TravelServiceApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -49,6 +52,8 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.CityServiceApplication.executor": "Run",
+    "Spring Boot.TourismServiceApplication.executor": "Run",
+    "Spring Boot.TravelServiceApplication (1).executor": "Run",
     "git-widget-placeholder": "pcDauphine",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Programmation/WS/MicroServices",
@@ -90,7 +95,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CityServiceApplication">
+  <component name="RunManager" selected="Spring Boot.TravelServiceApplication (1)">
     <configuration name="CityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="city-service" />
@@ -156,7 +161,7 @@
       <workItem from="1749200901664" duration="4995000" />
       <workItem from="1749219084488" duration="4562000" />
       <workItem from="1749491005756" duration="266000" />
-      <workItem from="1749491457613" duration="2100000" />
+      <workItem from="1749491457613" duration="4747000" />
     </task>
     <task id="LOCAL-00001" summary="Adding activity and accomodation">
       <option name="closed" value="true" />
@@ -206,7 +211,39 @@
       <option name="project" value="LOCAL" />
       <updated>1749493298120</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="City-Service DONE">
+      <option name="closed" value="true" />
+      <created>1749493610304</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749493610304</updated>
+    </task>
+    <task id="LOCAL-00008" summary="City-Service DONE">
+      <option name="closed" value="true" />
+      <created>1749493691115</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749493691115</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tourism-Service with MongoDB Atlas DONE">
+      <option name="closed" value="true" />
+      <created>1749495374787</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749495374787</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Travel-Service Config DONE">
+      <option name="closed" value="true" />
+      <created>1749496156309</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749496156309</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +254,9 @@
     <MESSAGE value="Plus de souci de packages" />
     <MESSAGE value="Test commit nouvelle branche" />
     <MESSAGE value="Connection avec PSQL RÉUSSIE !" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connection avec PSQL RÉUSSIE !" />
+    <MESSAGE value="City-Service DONE" />
+    <MESSAGE value="Tourism-Service with MongoDB Atlas DONE" />
+    <MESSAGE value="Travel-Service Config DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Travel-Service Config DONE" />
   </component>
 </project>
