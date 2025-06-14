@@ -49,7 +49,7 @@ public class AccommodationController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Récupérer les hébergements par ville - REQUÊTE NOSQL IMPORTANTE
+    // Récupérer les hébergements par ville
     @GetMapping("/city/{cityName}")
     public ResponseEntity<List<AccommodationDto>> getAccommodationsByCity(@PathVariable String cityName) {
         List<Accommodation> accommodations = accommodationService.getAccommodationsByCity(cityName);

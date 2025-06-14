@@ -41,7 +41,6 @@ public class Activity {
     @Min(value = 1, message = "Duration must be positive")
     private Integer durationMinutes;
 
-    // Saisonnalité (pour répondre à la requête "activités entre avril et juin")
     private List<Integer> availableMonths;
 
     // Dates spécifiques de disponibilité (optionnel)
