@@ -62,7 +62,7 @@ public class ActivityController {
         return ResponseEntity.ok(activityDtos);
     }
 
-    // REQUÊTE NOSQL : Activités associées à un POI donné
+    // Activités associées à un POI donné
     @GetMapping("/poi/{pointOfInterestId}")
     public ResponseEntity<List<ActivityDto>> getActivitiesByPointOfInterest(@PathVariable String pointOfInterestId) {
         List<Activity> activities = activityService.getActivitiesByPointOfInterest(pointOfInterestId);

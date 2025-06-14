@@ -4,10 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="Travel-Service Config DONE">
+    <list default="true" id="0b644891-fa88-415d-9717-9663c704ff36" name="Changes" comment="GATEWAY Config DONE 2">
+      <change afterPath="$PROJECT_DIR$/MSA/city-service/src/test/java/service/CityServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/city-service/target/test-classes/service/CityServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/gateway-service/src/test/java/ScenarioCompletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/gateway-service/src/test/java/service/GatewayServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/gateway-service/target/test-classes/ScenarioCompletTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/gateway-service/target/test-classes/service/GatewayServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/tourism-service/src/test/java/service/TourismServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/tourism-service/target/test-classes/service/TourismServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/travel-service/src/test/java/service/TravelServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MSA/travel-service/target/test-classes/service/TravelServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/application/TravelServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/application/TravelServiceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/controller/AccommodationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/controller/AccommodationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/controller/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/controller/ActivityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/Accommodation.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/Accommodation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/tourism-service/src/main/java/model/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/controller/TravelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/model/Travel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/src/main/java/service/TravelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MSA/travel-service/target/classes/service/TravelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MSA/travel-service/target/classes/service/TravelService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,36 +55,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "Database connection parameters found",
-    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.CityServiceApplication.executor": "Run",
-    "Spring Boot.TourismServiceApplication.executor": "Run",
-    "Spring Boot.TravelServiceApplication (1).executor": "Run",
-    "git-widget-placeholder": "pcDauphine",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Programmation/WS/MicroServices",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.CityServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;Database connection parameters found&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CityServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TourismServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TravelServiceApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;pcDauphine&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Programmation/WS/MicroServices&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Programmation\IntelliJ\MicroServices\MSA" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -95,7 +116,22 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TravelServiceApplication (1)">
+  <component name="RunManager" selected="Spring Boot.CityServiceApplication">
+    <configuration name="CityServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="city-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.CityServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CityServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="city-service" />
@@ -136,6 +172,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CityServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -161,7 +202,10 @@
       <workItem from="1749200901664" duration="4995000" />
       <workItem from="1749219084488" duration="4562000" />
       <workItem from="1749491005756" duration="266000" />
-      <workItem from="1749491457613" duration="4747000" />
+      <workItem from="1749491457613" duration="4844000" />
+      <workItem from="1749751341456" duration="5033000" />
+      <workItem from="1749844696193" duration="4088000" />
+      <workItem from="1749921459847" duration="4308000" />
     </task>
     <task id="LOCAL-00001" summary="Adding activity and accomodation">
       <option name="closed" value="true" />
@@ -243,7 +287,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749496156309</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="GATEWAY Config DONE">
+      <option name="closed" value="true" />
+      <created>1749496316087</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749496316087</updated>
+    </task>
+    <task id="LOCAL-00012" summary="GATEWAY Config DONE 2">
+      <option name="closed" value="true" />
+      <created>1749859654470</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749859654470</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +317,8 @@
     <MESSAGE value="City-Service DONE" />
     <MESSAGE value="Tourism-Service with MongoDB Atlas DONE" />
     <MESSAGE value="Travel-Service Config DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Travel-Service Config DONE" />
+    <MESSAGE value="GATEWAY Config DONE" />
+    <MESSAGE value="GATEWAY Config DONE 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="GATEWAY Config DONE 2" />
   </component>
 </project>

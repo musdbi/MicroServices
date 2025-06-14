@@ -144,7 +144,7 @@ public class TravelController {
     // ===============================
 
     /**
-     * REQUÊTE NOSQL : Villes possibles à visiter entre deux villes
+     * Villes possibles à visiter entre deux villes
      */
     @GetMapping("/intermediate-cities")
     public ResponseEntity<List<String>> findIntermediateCities(
@@ -164,7 +164,7 @@ public class TravelController {
 
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("Travel Service is running! 🚀");
+        return ResponseEntity.ok("Travel Service is running!");
     }
 
     @GetMapping("/test")

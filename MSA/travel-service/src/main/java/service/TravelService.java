@@ -96,6 +96,24 @@ public class TravelService {
         Travel travel = travelRepository.findById(travelId)
                 .orElseThrow(() -> new IllegalArgumentException("Travel with ID " + travelId + " not found"));
 
+        // Vérification que la date est dans la période du voyage
+        if (dayDto.getDate().isBefore(travel.getStartDate()) || dayDto.getDate().isAfter(travel.getEndDate())) {
+            throw new IllegalArgumentException("La date doit être comprise entre le début et la fin du voyage");
+        }
+
+        boolean isLastDay = dayDto.getDate().equals(travel.getEndDate());
+
+        // RÈGLE MÉTIER : Pas d'hébergement le dernier jour
+        if (isLastDay && dayDto.getAccommodationId() != null) {
+            dayDto.setAccommodationId(null);
+            dayDto.setAccommodationCityName(null);
+        }
+
+        // RÈGLE MÉTIER : Hébergement obligatoire sauf dernier jour
+        if (!isLastDay && (dayDto.getAccommodationId() == null || dayDto.getAccommodationId().isEmpty())) {
+            throw new IllegalArgumentException("Hébergement obligatoire sauf le dernier jour");
+        }
+
         // Auto-calcul du numéro de jour si pas spécifié
         if (dayDto.getDayNumber() == null) {
             List<TravelDay> existingDays = travelDayRepository.findByTravelIdOrderByDayNumber(travelId);
@@ -110,8 +128,12 @@ public class TravelService {
                 dayDto.getMainCityId()
         );
 
-        travelDay.setAccommodationCityName(dayDto.getAccommodationCityName());
-        travelDay.setAccommodationId(dayDto.getAccommodationId());
+        // ⚠️ IMPORTANT : Utiliser les valeurs modifiées du DTO
+        if (!isLastDay) {  // Assigner l'hébergement SEULEMENT si ce n'est pas le dernier jour
+            travelDay.setAccommodationCityName(dayDto.getAccommodationCityName());
+            travelDay.setAccommodationId(dayDto.getAccommodationId());
+        }
+        // Si c'est le dernier jour, les champs restent null (pas d'hébergement)
 
         return travelDayRepository.save(travelDay);
     }

@@ -36,7 +36,6 @@ public class Accommodation {
 
     private List<String> reviews;
 
-    // Coordonnées géographiques de l'hébergement
     private GeographicInfo geographicInfo;
 
     // Constructeurs

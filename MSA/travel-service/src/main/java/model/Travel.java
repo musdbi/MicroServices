@@ -27,7 +27,7 @@ public class Travel {
     private LocalDate endDate;
 
     private String description;
-    private String travelType; // leisure, business, adventure, cultural
+    private String travelType; // business, adventure, cultural
     private Double estimatedBudget;
     private Integer travelers; // Nombre de voyageurs
 
