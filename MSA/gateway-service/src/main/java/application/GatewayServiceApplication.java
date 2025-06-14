@@ -3,6 +3,7 @@ package application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
  * - Port : 8080 (port standard pour gateway)
  */
 @SpringBootApplication
+@ComponentScan(basePackages = {"controller", "application"})
 public class GatewayServiceApplication {
 
     @Bean

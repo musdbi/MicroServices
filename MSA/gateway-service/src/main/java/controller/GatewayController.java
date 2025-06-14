@@ -2,10 +2,7 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -36,143 +33,91 @@ public class GatewayController {
     @Value("${microservices.travel-service.url:http://localhost:8083}")
     private String travelServiceUrl;
 
-    /**
-     * Route TOUTES les requêtes /api/cities/** vers city-service
-     */
+    private ResponseEntity<String> forwardRequest(HttpServletRequest request, Object body, String serviceUrl) {
+        String path = request.getRequestURI().replace("/api", "");
+        String queryString = request.getQueryString();
+        String fullUrl = serviceUrl + "/api" + path + (queryString != null ? "?" + queryString : "");
+
+        logger.info("Routing to service: {} {}", request.getMethod(), fullUrl);
+
+        try {
+            HttpMethod method;
+            try {
+                method = HttpMethod.valueOf(request.getMethod());
+            } catch (IllegalArgumentException e) {
+                logger.error("Unsupported HTTP method: {}", request.getMethod());
+                return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED)
+                        .body("{\"error\":\"Unsupported HTTP method\"}");
+            }
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Content-Type", "application/json");
+
+            HttpEntity<?> entity;
+            if (method == HttpMethod.GET || method == HttpMethod.DELETE) {
+                entity = new HttpEntity<>(headers);
+            } else {
+                entity = new HttpEntity<>(body, headers);
+            }
+
+            ResponseEntity<String> response = restTemplate.exchange(
+                    fullUrl,
+                    method,
+                    entity,
+                    String.class
+            );
+
+            logger.info("Service responded with status: {}", response.getStatusCode());
+            return response;
+
+        } catch (Exception e) {
+            logger.error("Error calling service: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"Service unavailable: " + e.getMessage() + "\"}");
+        }
+    }
+
     @RequestMapping(value = "/cities/**", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-    public ResponseEntity<String> routeToCityService(
-            HttpServletRequest request,
-            @RequestBody(required = false) Object body) {
-
-        String path = request.getRequestURI().replace("/api", "");
-        String queryString = request.getQueryString();
-        String fullUrl = cityServiceUrl + "/api" + path + (queryString != null ? "?" + queryString : "");
-
-        logger.info("Routing to city-service: {} {}", request.getMethod(), fullUrl);
-
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Content-Type", "application/json");
-            HttpEntity<Object> entity = new HttpEntity<>(body, headers);
-
-            ResponseEntity<String> response = restTemplate.exchange(
-                    fullUrl,
-                    HttpMethod.valueOf(request.getMethod()),
-                    entity,
-                    String.class
-            );
-
-            logger.info("City-service responded with status: {}", response.getStatusCode());
-            return response;
-
-        } catch (Exception e) {
-            logger.error("Error calling city-service: {}", e.getMessage());
-            return ResponseEntity.status(500).body("{\"error\":\"City service unavailable: " + e.getMessage() + "\"}");
-        }
+    public ResponseEntity<String> routeToCityService(HttpServletRequest request, @RequestBody(required = false) Object body) {
+        return forwardRequest(request, body, cityServiceUrl);
     }
 
-    /**
-     * Route TOUTES les requêtes /api/tourism/** vers tourism-service
-     */
     @RequestMapping(value = "/tourism/**", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-    public ResponseEntity<String> routeToTourismService(
-            HttpServletRequest request,
-            @RequestBody(required = false) Object body) {
-
-        String path = request.getRequestURI().replace("/api", "");
-        String queryString = request.getQueryString();
-        String fullUrl = tourismServiceUrl + "/api" + path + (queryString != null ? "?" + queryString : "");
-
-        logger.info("Routing to tourism-service: {} {}", request.getMethod(), fullUrl);
-
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Content-Type", "application/json");
-            HttpEntity<Object> entity = new HttpEntity<>(body, headers);
-
-            ResponseEntity<String> response = restTemplate.exchange(
-                    fullUrl,
-                    HttpMethod.valueOf(request.getMethod()),
-                    entity,
-                    String.class
-            );
-
-            logger.info("Tourism-service responded with status: {}", response.getStatusCode());
-            return response;
-
-        } catch (Exception e) {
-            logger.error("Error calling tourism-service: {}", e.getMessage());
-            return ResponseEntity.status(500).body("{\"error\":\"tourism service unavailable: " + e.getMessage() + "\"}");
-        }
+    public ResponseEntity<String> routeToTourismService(HttpServletRequest request, @RequestBody(required = false) Object body) {
+        return forwardRequest(request, body, tourismServiceUrl);
     }
 
-    /**
-     * Route TOUTES les requêtes /api/travels/** vers travel-service
-     */
     @RequestMapping(value = "/travels/**", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-    public ResponseEntity<String> routeToTravelService(
-            HttpServletRequest request,
-            @RequestBody(required = false) Object body) {
-
-        String path = request.getRequestURI().replace("/api", "");
-        String queryString = request.getQueryString();
-        String fullUrl = travelServiceUrl + "/api" + path + (queryString != null ? "?" + queryString : "");
-
-        logger.info("Routing to travel-service: {} {}", request.getMethod(), fullUrl);
-
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Content-Type", "application/json");
-            HttpEntity<Object> entity = new HttpEntity<>(body, headers);
-
-            ResponseEntity<String> response = restTemplate.exchange(
-                    fullUrl,
-                    HttpMethod.valueOf(request.getMethod()),
-                    entity,
-                    String.class
-            );
-
-            logger.info("Travel-service responded with status: {}", response.getStatusCode());
-            return response;
-
-        } catch (Exception e) {
-            logger.error("Error calling travel-service: {}", e.getMessage());
-            return ResponseEntity.status(500).body("{\"error\":\"Travel service unavailable: " + e.getMessage() + "\"}");
-        }
+    public ResponseEntity<String> routeToTravelService(HttpServletRequest request, @RequestBody(required = false) Object body) {
+        return forwardRequest(request, body, travelServiceUrl);
     }
 
-    /**
-     * Endpoint de santé du gateway
-     */
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("{\"status\":\"Gateway Service is running! 🚪\",\"services\":{\"city\":\"" + cityServiceUrl + "\",\"tourism\":\"" + tourismServiceUrl + "\",\"travel\":\"" + travelServiceUrl + "\"}}");
+        return ResponseEntity.ok("{\"status\":\"Gateway Service is running! \",\"services\":{\"city\":\"" + cityServiceUrl + "\",\"tourism\":\"" + tourismServiceUrl + "\",\"travel\":\"" + travelServiceUrl + "\"}}");
     }
 
-    /**
-     * Information sur les routes disponibles
-     */
     @GetMapping("/routes")
     public ResponseEntity<String> getRoutes() {
         return ResponseEntity.ok(String.format("""
-            {
-                "gateway": "http://localhost:8080",
-                "routes": {
-                    "cities": "/api/cities/**",
-                    "tourism": "/api/tourism/**",
-                    "travels": "/api/travels/**"
-                },
-                "services": {
-                    "city-service": "%s",
-                    "tourism-service": "%s",
-                    "travel-service": "%s"
-                },
-                "endpoints": {
-                    "health": "/api/health",
-                    "routes": "/api/routes"
+                {
+                    "gateway": "http://localhost:8080",
+                    "routes": {
+                        "cities": "/api/cities/**",
+                        "tourism": "/api/tourism/**",
+                        "travels": "/api/travels/**"
+                    },
+                    "services": {
+                        "city-service": "%s",
+                        "tourism-service": "%s",
+                        "travel-service": "%s"
+                    },
+                    "endpoints": {
+                        "health": "/api/health",
+                        "routes": "/api/routes"
+                    }
                 }
-            }
-            """, cityServiceUrl, tourismServiceUrl, travelServiceUrl));
+                """, cityServiceUrl, tourismServiceUrl, travelServiceUrl));
     }
 
     @GetMapping("/test")
