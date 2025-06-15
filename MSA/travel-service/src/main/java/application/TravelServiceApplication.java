@@ -16,7 +16,7 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
  * - Base de données : Neo4j (graphes de relations)
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"controller", "service", "repository", "model", "dto"})
+@ComponentScan(basePackages = {"controller", "service", "repository", "model", "dto", "config"})
 @EnableNeo4jRepositories(basePackages = "repository")
 public class TravelServiceApplication {
 

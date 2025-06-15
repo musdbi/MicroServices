@@ -4,10 +4,14 @@ import model.PointOfInterest;
 import dto.PointOfInterestDto;
 import repository.PointOfInterestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
 
 @Service
 public class PointOfInterestService {
@@ -15,12 +19,36 @@ public class PointOfInterestService {
     @Autowired
     private PointOfInterestRepository poiRepository;
 
-    // Créer un POI
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Value("${services.city-service.url:http://localhost:8081}")
+    private String cityServiceUrl;
+
+    private void validateCityExists(String cityName) {
+        if (cityName == null || cityName.isEmpty()) {
+            return;
+        }
+
+        try {
+            String url = cityServiceUrl + "/api/cities/search?name=" + cityName;
+            Map<String, Object> city = restTemplate.getForObject(url, Map.class);
+        } catch (HttpClientErrorException.NotFound e) {
+            throw new IllegalArgumentException("Ville '" + cityName + "' introuvable dans le système");
+        } catch (Exception e) {
+            throw new RuntimeException("Impossible de vérifier l'existence de la ville: " + e.getMessage());
+        }
+    }
+
+    // Modifie la méthode createPointOfInterest
     public PointOfInterest createPointOfInterest(PointOfInterestDto poiDto) {
         // Vérifier si le POI existe déjà
         if (poiRepository.existsByNameIgnoreCaseAndCityNameIgnoreCase(poiDto.getName(), poiDto.getCityName())) {
             throw new RuntimeException("Point of Interest already exists in this city");
         }
+
+        // VALIDATION : Vérifier que la ville existe
+        validateCityExists(poiDto.getCityName());
 
         // Convertir DTO vers entité
         PointOfInterest poi = new PointOfInterest(

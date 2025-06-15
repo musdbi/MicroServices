@@ -4,13 +4,17 @@ import model.Activity;
 import dto.ActivityDto;
 import repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 @Service
 public class ActivityService {
@@ -18,13 +22,37 @@ public class ActivityService {
     @Autowired
     private ActivityRepository activityRepository;
 
-    // Créer une activité
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Value("${services.city-service.url:http://localhost:8081}")
+    private String cityServiceUrl;
+
+    private void validateCityExists(String cityName) {
+        if (cityName == null || cityName.isEmpty()) {
+            return;
+        }
+
+        try {
+            String url = cityServiceUrl + "/api/cities/search?name=" + cityName;
+            Map<String, Object> city = restTemplate.getForObject(url, Map.class);
+        } catch (HttpClientErrorException.NotFound e) {
+            throw new IllegalArgumentException("Ville '" + cityName + "' introuvable dans le système");
+        } catch (Exception e) {
+            throw new RuntimeException("Impossible de vérifier l'existence de la ville: " + e.getMessage());
+        }
+    }
+
+    // Modifie la méthode createActivity
     public Activity createActivity(ActivityDto activityDto) {
         // Vérifier si l'activité existe déjà
         if (activityRepository.existsByNameIgnoreCaseAndCityNameIgnoreCase(
                 activityDto.getName(), activityDto.getCityName())) {
             throw new RuntimeException("Activity already exists in this city");
         }
+
+        // VALIDATION : Vérifier que la ville existe
+        validateCityExists(activityDto.getCityName());
 
         // Convertir DTO vers entité
         Activity activity = new Activity(

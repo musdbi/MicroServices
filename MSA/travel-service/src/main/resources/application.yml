@@ -13,6 +13,12 @@ spring:
       username: neo4j
       password: E5p_PQy5sfZGEC7FSBbhExB6Tbrax-BAGCCrz8rPYV8
 
+services:
+  city-service:
+    url: http://localhost:8081
+  tourism-service:
+    url: http://localhost:8082
+
 # Configuration Actuator
 management:
   endpoints:

@@ -8,11 +8,15 @@ import dto.TravelDto;
 import dto.TravelDayDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service
 public class TravelService {
@@ -22,6 +26,97 @@ public class TravelService {
 
     @Autowired
     private TravelDayRepository travelDayRepository;
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    // URLs des autres microservices
+    @Value("${services.city-service.url:http://localhost:8081}")
+    private String cityServiceUrl;
+
+    @Value("${services.tourism-service.url:http://localhost:8082}")
+    private String tourismServiceUrl;
+
+    // ===============================
+    // MÉTHODES DE VALIDATION
+    // ===============================
+
+    /**
+     * Vérifie qu'une ville existe via city-service
+     */
+    private void validateCityExists(String cityName) {
+        if (cityName == null || cityName.isEmpty()) {
+            return; // Pas de validation si pas de ville
+        }
+
+        try {
+            String url = cityServiceUrl + "/api/cities/search?name=" + cityName;
+            restTemplate.getForObject(url, Map.class);
+        } catch (HttpClientErrorException.NotFound e) {
+            throw new IllegalArgumentException("Ville '" + cityName + "' introuvable");
+        } catch (Exception e) {
+            throw new RuntimeException("Impossible de vérifier l'existence de la ville '" + cityName + "': " + e.getMessage());
+        }
+    }
+
+    /**
+     * Vérifie qu'un hébergement existe via tourism-service
+     */
+    private void validateAccommodationExists(String accommodationId, String expectedCityName) {
+        if (accommodationId == null || accommodationId.isEmpty()) {
+            return; // Pas de validation si pas d'hébergement
+        }
+
+        try {
+            String url = tourismServiceUrl + "/api/tourism/accommodations/" + accommodationId;
+            Map<String, Object> accommodation = restTemplate.getForObject(url, Map.class);
+
+            // Vérifier que l'hébergement est bien dans la ville attendue
+            if (accommodation != null && expectedCityName != null) {
+                String accommodationCity = (String) accommodation.get("cityName");
+                if (!expectedCityName.equalsIgnoreCase(accommodationCity)) {
+                    throw new IllegalArgumentException(
+                            "L'hébergement sélectionné est à " + accommodationCity +
+                                    " mais vous avez indiqué " + expectedCityName
+                    );
+                }
+            }
+        } catch (HttpClientErrorException.NotFound e) {
+            throw new IllegalArgumentException("Hébergement avec ID '" + accommodationId + "' introuvable");
+        } catch (IllegalArgumentException e) {
+            throw e; // Re-lancer les erreurs de validation
+        } catch (Exception e) {
+            throw new RuntimeException("Impossible de vérifier l'existence de l'hébergement: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Vérifie que les activités existent et récupère leurs villes
+     */
+    private List<String> validateAndGetActivityCities(List<String> activityIds) {
+        List<String> cities = new ArrayList<>();
+
+        if (activityIds == null || activityIds.isEmpty()) {
+            return cities;
+        }
+
+        for (String activityId : activityIds) {
+            try {
+                String url = tourismServiceUrl + "/api/tourism/activities/" + activityId;
+                Map<String, Object> activity = restTemplate.getForObject(url, Map.class);
+
+                if (activity != null && activity.get("cityName") != null) {
+                    cities.add((String) activity.get("cityName"));
+                }
+            } catch (HttpClientErrorException.NotFound e) {
+                throw new IllegalArgumentException("Activité avec ID '" + activityId + "' introuvable");
+            } catch (Exception e) {
+                throw new RuntimeException("Impossible de vérifier l'existence de l'activité '" + activityId + "': " + e.getMessage());
+            }
+        }
+
+        return cities;
+    }
 
     // ===============================
     // CRUD VOYAGES (inchangé)
@@ -74,7 +169,7 @@ public class TravelService {
     }
 
     // ===============================
-    // GESTION DES JOURNÉES (modifié)
+    // GESTION DES JOURNÉES (avec validation)
     // ===============================
 
     public List<TravelDay> getTravelDays(Long travelId) {
@@ -106,6 +201,15 @@ public class TravelService {
         if (!isLastDay && (dayDto.getAccommodationId() == null || dayDto.getAccommodationId().isEmpty())) {
             throw new IllegalArgumentException("Hébergement obligatoire sauf le dernier jour");
         }
+
+        // VALIDATION : Vérifier que la ville d'hébergement existe
+        if (!isLastDay) {
+            validateCityExists(dayDto.getAccommodationCityName());
+            validateAccommodationExists(dayDto.getAccommodationId(), dayDto.getAccommodationCityName());
+        }
+
+        // VALIDATION : Vérifier que toutes les activités existent
+        List<String> activityCities = validateAndGetActivityCities(dayDto.getPlannedActivityIds());
 
         // Auto-calcul du numéro de jour si pas spécifié
         if (dayDto.getDayNumber() == null) {
@@ -142,6 +246,9 @@ public class TravelService {
         TravelDay existingDay = travelDayRepository.findById(dayId)
                 .orElseThrow(() -> new IllegalArgumentException("Travel day with ID " + dayId + " not found"));
 
+        // VALIDATION : Vérifier que toutes les activités existent
+        validateAndGetActivityCities(dayDto.getPlannedActivityIds());
+
         existingDay.setPlannedActivityIds(dayDto.getPlannedActivityIds());
         existingDay.setDayDescription(dayDto.getDayDescription());
         existingDay.setDailyBudget(dayDto.getDailyBudget());
@@ -157,19 +264,26 @@ public class TravelService {
     }
 
     // ===============================
-    // REQUÊTES NOSQL (modifié)
+    // REQUÊTES NOSQL
     // ===============================
 
     public List<String> findIntermediateCities(String startCity, String endCity) {
+        // Valider que les villes de départ et d'arrivée existent
+        validateCityExists(startCity);
+        validateCityExists(endCity);
+
         return travelRepository.findIntermediateCities(startCity, endCity);
     }
 
     public List<Travel> getTravelsByCityVisited(String cityName) {
+        // Valider que la ville existe
+        validateCityExists(cityName);
+
         return travelRepository.findTravelsByCityVisited(cityName);
     }
 
     // ===============================
-    // CONVERSIONS DTO
+    // CONVERSIONS DTO (inchangé)
     // ===============================
 
     public TravelDto convertToDto(Travel travel) {

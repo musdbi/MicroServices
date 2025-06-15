@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  * - Base de données : MongoDB (documents flexibles)
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"controller", "service", "repository", "model"})
+@ComponentScan(basePackages = {"controller", "service", "repository", "model", "config"})
 @EnableMongoRepositories(basePackages = "repository")
 public class TourismServiceApplication {
 
