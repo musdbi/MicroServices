@@ -1,8 +1,8 @@
 package dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.List;
 
 public class TravelDayDto {
     private Long id;
@@ -12,12 +12,16 @@ public class TravelDayDto {
 
     private Integer dayNumber;
 
-    @NotBlank(message = "Main city name is required")
-    private String mainCityName;
-
-    private Long mainCityId;
+    // Hébergement (optionnel)
     private String accommodationCityName;
-    private String accommodationId; // Référence vers poi-service
+    private Long accommodationCityId;
+    private String accommodationId;
+
+    // Activités planifiées pour cette journée
+    private List<String> plannedActivityIds;
+
+    private String dayDescription;
+    private Double dailyBudget;
 
     // Constructeurs
     public TravelDayDto() {}
@@ -32,16 +36,21 @@ public class TravelDayDto {
     public Integer getDayNumber() { return dayNumber; }
     public void setDayNumber(Integer dayNumber) { this.dayNumber = dayNumber; }
 
-    public String getMainCityName() { return mainCityName; }
-    public void setMainCityName(String mainCityName) { this.mainCityName = mainCityName; }
-
-    public Long getMainCityId() { return mainCityId; }
-    public void setMainCityId(Long mainCityId) { this.mainCityId = mainCityId; }
-
     public String getAccommodationCityName() { return accommodationCityName; }
     public void setAccommodationCityName(String accommodationCityName) { this.accommodationCityName = accommodationCityName; }
 
+    public Long getAccommodationCityId() { return accommodationCityId; }
+    public void setAccommodationCityId(Long accommodationCityId) { this.accommodationCityId = accommodationCityId; }
+
     public String getAccommodationId() { return accommodationId; }
     public void setAccommodationId(String accommodationId) { this.accommodationId = accommodationId; }
-}
 
+    public List<String> getPlannedActivityIds() { return plannedActivityIds; }
+    public void setPlannedActivityIds(List<String> plannedActivityIds) { this.plannedActivityIds = plannedActivityIds; }
+
+    public String getDayDescription() { return dayDescription; }
+    public void setDayDescription(String dayDescription) { this.dayDescription = dayDescription; }
+
+    public Double getDailyBudget() { return dailyBudget; }
+    public void setDailyBudget(Double dailyBudget) { this.dailyBudget = dailyBudget; }
+}

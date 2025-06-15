@@ -1,14 +1,13 @@
 package model;
 
 import org.springframework.data.neo4j.core.schema.*;
-import org.springframework.data.neo4j.core.schema.Relationship;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Journée de voyage enrichie - Nœud Neo4j
- * Peut contenir plusieurs villes visitées dans la même journée
+ * Journée de voyage simplifiée - Nœud Neo4j
+ * Contient directement les activités planifiées pour cette journée
  */
 @Node("TravelDay")
 public class TravelDay {
@@ -21,31 +20,24 @@ public class TravelDay {
 
     private Integer dayNumber; // Jour 1, 2, 3...
 
-    // Ville principale de la journée
-    private String mainCityName;
-    private Long mainCityId; // Référence vers city-service
-
-    // Hébergement (peut être dans une ville différente des visites)
+    // Hébergement de la journée (null pour le dernier jour)
     private String accommodationCityName;
-    private Long accommodationCityId;
-    private String accommodationId; // Référence vers poi-service
+    private Long accommodationCityId; // Référence vers city-service
+    private String accommodationId; // Référence vers tourism-service
+
+    // Activités planifiées pour cette journée (IDs seulement)
+    private List<String> plannedActivityIds;
 
     // Notes et budget de la journée
     private String dayDescription;
     private Double dailyBudget;
 
-    // Relations vers les visites de villes
-    @Relationship(type = "VISITS", direction = Relationship.Direction.OUTGOING)
-    private List<CityVisit> cityVisits;
-
     // Constructeurs
     public TravelDay() {}
 
-    public TravelDay(LocalDate date, Integer dayNumber, String mainCityName, Long mainCityId) {
+    public TravelDay(LocalDate date, Integer dayNumber) {
         this.date = date;
         this.dayNumber = dayNumber;
-        this.mainCityName = mainCityName;
-        this.mainCityId = mainCityId;
     }
 
     // Getters et Setters
@@ -58,12 +50,6 @@ public class TravelDay {
     public Integer getDayNumber() { return dayNumber; }
     public void setDayNumber(Integer dayNumber) { this.dayNumber = dayNumber; }
 
-    public String getMainCityName() { return mainCityName; }
-    public void setMainCityName(String mainCityName) { this.mainCityName = mainCityName; }
-
-    public Long getMainCityId() { return mainCityId; }
-    public void setMainCityId(Long mainCityId) { this.mainCityId = mainCityId; }
-
     public String getAccommodationCityName() { return accommodationCityName; }
     public void setAccommodationCityName(String accommodationCityName) { this.accommodationCityName = accommodationCityName; }
 
@@ -73,14 +59,14 @@ public class TravelDay {
     public String getAccommodationId() { return accommodationId; }
     public void setAccommodationId(String accommodationId) { this.accommodationId = accommodationId; }
 
+    public List<String> getPlannedActivityIds() { return plannedActivityIds; }
+    public void setPlannedActivityIds(List<String> plannedActivityIds) { this.plannedActivityIds = plannedActivityIds; }
+
     public String getDayDescription() { return dayDescription; }
     public void setDayDescription(String dayDescription) { this.dayDescription = dayDescription; }
 
     public Double getDailyBudget() { return dailyBudget; }
     public void setDailyBudget(Double dailyBudget) { this.dailyBudget = dailyBudget; }
-
-    public List<CityVisit> getCityVisits() { return cityVisits; }
-    public void setCityVisits(List<CityVisit> cityVisits) { this.cityVisits = cityVisits; }
 
     @Override
     public String toString() {
@@ -88,8 +74,8 @@ public class TravelDay {
                 "id=" + id +
                 ", date=" + date +
                 ", dayNumber=" + dayNumber +
-                ", mainCityName='" + mainCityName + '\'' +
                 ", accommodationCityName='" + accommodationCityName + '\'' +
+                ", plannedActivityIds=" + plannedActivityIds +
                 '}';
     }
 }

@@ -2,11 +2,9 @@ package controller;
 
 import model.Travel;
 import model.TravelDay;
-import model.CityVisit;
 import service.TravelService;
 import dto.TravelDto;
 import dto.TravelDayDto;
-import dto.CityVisitDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,9 +15,6 @@ import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Controller REST simplifié pour la gestion des voyages
- */
 @RestController
 @RequestMapping("/api/travels")
 @CrossOrigin(origins = "*")
@@ -29,7 +24,7 @@ public class TravelController {
     private TravelService travelService;
 
     // ===============================
-    // CRUD BASIQUE VOYAGES
+    // CRUD BASIQUE VOYAGES (inchangé)
     // ===============================
 
     @GetMapping
@@ -80,7 +75,7 @@ public class TravelController {
     }
 
     // ===============================
-    // GESTION DES JOURNÉES
+    // GESTION DES JOURNÉES (simplifié)
     // ===============================
 
     @GetMapping("/{id}/days")
@@ -103,36 +98,20 @@ public class TravelController {
         }
     }
 
-    @DeleteMapping("/{travelId}/days/{dayId}")
-    public ResponseEntity<Void> deleteTravelDay(@PathVariable Long travelId, @PathVariable Long dayId) {
+    @PutMapping("/days/{dayId}")
+    public ResponseEntity<TravelDayDto> updateTravelDay(@PathVariable Long dayId, @Valid @RequestBody TravelDayDto dayDto) {
         try {
-            travelService.deleteTravelDay(travelId, dayId);
-            return ResponseEntity.noContent().build();
+            TravelDay updatedDay = travelService.updateTravelDay(dayId, dayDto);
+            return ResponseEntity.ok(travelService.convertTravelDayToDto(updatedDay));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
         }
     }
 
-    // ===============================
-    // GESTION DES VISITES
-    // ===============================
-
-    @PostMapping("/{travelId}/days/{dayId}/visits")
-    public ResponseEntity<CityVisitDto> addCityVisit(
-            @PathVariable Long travelId, @PathVariable Long dayId, @Valid @RequestBody CityVisitDto visitDto) {
+    @DeleteMapping("/{travelId}/days/{dayId}")
+    public ResponseEntity<Void> deleteTravelDay(@PathVariable Long travelId, @PathVariable Long dayId) {
         try {
-            CityVisit createdVisit = travelService.addCityVisit(travelId, dayId, visitDto);
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(travelService.convertCityVisitToDto(createdVisit));
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
-
-    @DeleteMapping("/visits/{visitId}")
-    public ResponseEntity<Void> deleteCityVisit(@PathVariable Long visitId) {
-        try {
-            travelService.deleteCityVisit(visitId);
+            travelService.deleteTravelDay(travelId, dayId);
             return ResponseEntity.noContent().build();
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
@@ -145,6 +124,8 @@ public class TravelController {
 
     /**
      * Villes possibles à visiter entre deux villes
+     * NOTE: Cette implémentation nécessitera d'appeler tourism-service
+     * pour récupérer les villes des activités
      */
     @GetMapping("/intermediate-cities")
     public ResponseEntity<List<String>> findIntermediateCities(
@@ -164,7 +145,7 @@ public class TravelController {
 
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("Travel Service is running!");
+        return ResponseEntity.ok("Travel Service is running! 🚀");
     }
 
     @GetMapping("/test")

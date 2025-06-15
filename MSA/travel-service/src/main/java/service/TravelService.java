@@ -2,23 +2,18 @@ package service;
 
 import model.Travel;
 import model.TravelDay;
-import model.CityVisit;
 import repository.TravelRepository;
 import repository.TravelDayRepository;
-import repository.CityVisitRepository;
 import dto.TravelDto;
 import dto.TravelDayDto;
-import dto.CityVisitDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
 
-/**
- * Service simplifié de gestion des voyages
- */
 @Service
 public class TravelService {
 
@@ -28,11 +23,8 @@ public class TravelService {
     @Autowired
     private TravelDayRepository travelDayRepository;
 
-    @Autowired
-    private CityVisitRepository cityVisitRepository;
-
     // ===============================
-    // CRUD VOYAGES
+    // CRUD VOYAGES (inchangé)
     // ===============================
 
     public List<Travel> getAllTravels() {
@@ -82,7 +74,7 @@ public class TravelService {
     }
 
     // ===============================
-    // GESTION DES JOURNÉES
+    // GESTION DES JOURNÉES (modifié)
     // ===============================
 
     public List<TravelDay> getTravelDays(Long travelId) {
@@ -107,6 +99,7 @@ public class TravelService {
         if (isLastDay && dayDto.getAccommodationId() != null) {
             dayDto.setAccommodationId(null);
             dayDto.setAccommodationCityName(null);
+            dayDto.setAccommodationCityId(null);
         }
 
         // RÈGLE MÉTIER : Hébergement obligatoire sauf dernier jour
@@ -121,21 +114,39 @@ public class TravelService {
             dayDto.setDayNumber(nextDayNumber);
         }
 
-        TravelDay travelDay = new TravelDay(
-                dayDto.getDate(),
-                dayDto.getDayNumber(),
-                dayDto.getMainCityName(),
-                dayDto.getMainCityId()
-        );
+        TravelDay travelDay = new TravelDay(dayDto.getDate(), dayDto.getDayNumber());
 
-        // ⚠️ IMPORTANT : Utiliser les valeurs modifiées du DTO
-        if (!isLastDay) {  // Assigner l'hébergement SEULEMENT si ce n'est pas le dernier jour
+        // Définir l'hébergement si ce n'est pas le dernier jour
+        if (!isLastDay) {
             travelDay.setAccommodationCityName(dayDto.getAccommodationCityName());
+            travelDay.setAccommodationCityId(dayDto.getAccommodationCityId());
             travelDay.setAccommodationId(dayDto.getAccommodationId());
         }
-        // Si c'est le dernier jour, les champs restent null (pas d'hébergement)
 
-        return travelDayRepository.save(travelDay);
+        // Définir les activités planifiées
+        travelDay.setPlannedActivityIds(dayDto.getPlannedActivityIds() != null ?
+                dayDto.getPlannedActivityIds() : new ArrayList<>());
+        travelDay.setDayDescription(dayDto.getDayDescription());
+        travelDay.setDailyBudget(dayDto.getDailyBudget());
+
+        // Sauvegarder le TravelDay
+        TravelDay savedDay = travelDayRepository.save(travelDay);
+
+        // Créer la relation avec le Travel
+        travelRepository.createHasDayRelation(travelId, savedDay.getId());
+
+        return savedDay;
+    }
+
+    public TravelDay updateTravelDay(Long dayId, TravelDayDto dayDto) {
+        TravelDay existingDay = travelDayRepository.findById(dayId)
+                .orElseThrow(() -> new IllegalArgumentException("Travel day with ID " + dayId + " not found"));
+
+        existingDay.setPlannedActivityIds(dayDto.getPlannedActivityIds());
+        existingDay.setDayDescription(dayDto.getDayDescription());
+        existingDay.setDailyBudget(dayDto.getDailyBudget());
+
+        return travelDayRepository.save(existingDay);
     }
 
     public void deleteTravelDay(Long travelId, Long dayId) {
@@ -146,34 +157,7 @@ public class TravelService {
     }
 
     // ===============================
-    // GESTION DES VISITES
-    // ===============================
-
-    public CityVisit addCityVisit(Long travelId, Long dayId, CityVisitDto visitDto) {
-        TravelDay travelDay = travelDayRepository.findById(dayId)
-                .orElseThrow(() -> new IllegalArgumentException("Travel day with ID " + dayId + " not found"));
-
-        CityVisit cityVisit = new CityVisit(
-                visitDto.getCityName(),
-                visitDto.getCityId(),
-                visitDto.getVisitDate()
-        );
-
-        cityVisit.setPlannedPOIIds(visitDto.getPlannedPOIIds());
-        cityVisit.setPlannedActivityIds(visitDto.getPlannedActivityIds());
-
-        return cityVisitRepository.save(cityVisit);
-    }
-
-    public void deleteCityVisit(Long visitId) {
-        if (!cityVisitRepository.existsById(visitId)) {
-            throw new IllegalArgumentException("City visit with ID " + visitId + " not found");
-        }
-        cityVisitRepository.deleteById(visitId);
-    }
-
-    // ===============================
-    // REQUÊTES NOSQL
+    // REQUÊTES NOSQL (modifié)
     // ===============================
 
     public List<String> findIntermediateCities(String startCity, String endCity) {
@@ -185,7 +169,7 @@ public class TravelService {
     }
 
     // ===============================
-    // CONVERSIONS DTO SIMPLES
+    // CONVERSIONS DTO
     // ===============================
 
     public TravelDto convertToDto(Travel travel) {
@@ -203,21 +187,12 @@ public class TravelService {
         dto.setId(travelDay.getId());
         dto.setDate(travelDay.getDate());
         dto.setDayNumber(travelDay.getDayNumber());
-        dto.setMainCityName(travelDay.getMainCityName());
-        dto.setMainCityId(travelDay.getMainCityId());
         dto.setAccommodationCityName(travelDay.getAccommodationCityName());
+        dto.setAccommodationCityId(travelDay.getAccommodationCityId());
         dto.setAccommodationId(travelDay.getAccommodationId());
-        return dto;
-    }
-
-    public CityVisitDto convertCityVisitToDto(CityVisit cityVisit) {
-        CityVisitDto dto = new CityVisitDto();
-        dto.setId(cityVisit.getId());
-        dto.setCityName(cityVisit.getCityName());
-        dto.setCityId(cityVisit.getCityId());
-        dto.setVisitDate(cityVisit.getVisitDate());
-        dto.setPlannedPOIIds(cityVisit.getPlannedPOIIds());
-        dto.setPlannedActivityIds(cityVisit.getPlannedActivityIds());
+        dto.setPlannedActivityIds(travelDay.getPlannedActivityIds());
+        dto.setDayDescription(travelDay.getDayDescription());
+        dto.setDailyBudget(travelDay.getDailyBudget());
         return dto;
     }
 }
