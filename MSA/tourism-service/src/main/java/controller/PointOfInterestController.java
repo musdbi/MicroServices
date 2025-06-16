@@ -90,7 +90,7 @@ public class PointOfInterestController {
         return ResponseEntity.ok(poiDtos);
     }
 
-    // Rechercher par nom (autocomplétion)
+    // Rechercher par nom
     @GetMapping("/search")
     public ResponseEntity<List<PointOfInterestDto>> searchPointsOfInterestByName(@RequestParam String name) {
         List<PointOfInterest> pois = poiService.searchPointsOfInterestByName(name);

@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 
 /**
  * DTO pour les Points d'Intérêt
- * Utilisé pour les échanges API (request/response)
  */
 
 public class PointOfInterestDto {
@@ -24,7 +23,6 @@ public class PointOfInterestDto {
     private String description;
     private GeographicInfo geographicInfo;
 
-    // Constructeurs
     public PointOfInterestDto() {}
 
     public PointOfInterestDto(String name, String cityName, Long cityId, String type,
@@ -37,7 +35,6 @@ public class PointOfInterestDto {
         this.geographicInfo = geographicInfo;
     }
 
-    // Getters et Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

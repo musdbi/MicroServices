@@ -21,7 +21,7 @@ public interface PointOfInterestRepository extends MongoRepository<PointOfIntere
     // Recherche par ville et type
     List<PointOfInterest> findByCityNameIgnoreCaseAndTypeIgnoreCase(String cityName, String type);
 
-    // Recherche par nom (utile pour l'autocomplétion)
+    // Recherche par nom
     List<PointOfInterest> findByNameContainingIgnoreCase(String name);
 
     // Vérifier l'existence par nom et ville

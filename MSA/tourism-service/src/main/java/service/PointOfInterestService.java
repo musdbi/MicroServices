@@ -40,14 +40,13 @@ public class PointOfInterestService {
         }
     }
 
-    // Modifie la méthode createPointOfInterest
     public PointOfInterest createPointOfInterest(PointOfInterestDto poiDto) {
         // Vérifier si le POI existe déjà
         if (poiRepository.existsByNameIgnoreCaseAndCityNameIgnoreCase(poiDto.getName(), poiDto.getCityName())) {
             throw new RuntimeException("Point of Interest already exists in this city");
         }
 
-        // VALIDATION : Vérifier que la ville existe
+        // Vérifier que la ville existe
         validateCityExists(poiDto.getCityName());
 
         // Convertir DTO vers entité
@@ -93,7 +92,7 @@ public class PointOfInterestService {
         return poiRepository.findByCityNameIgnoreCaseAndTypeIgnoreCase(cityName, type);
     }
 
-    // Rechercher par nom (autocomplétion)
+    // Rechercher par nom
     public List<PointOfInterest> searchPointsOfInterestByName(String name) {
         return poiRepository.findByNameContainingIgnoreCase(name);
     }
