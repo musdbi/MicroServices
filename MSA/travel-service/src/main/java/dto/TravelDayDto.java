@@ -23,10 +23,8 @@ public class TravelDayDto {
     private String dayDescription;
     private Double dailyBudget;
 
-    // Constructeurs
     public TravelDayDto() {}
 
-    // Getters et Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

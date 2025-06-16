@@ -27,15 +27,11 @@ public class Travel {
     private LocalDate endDate;
 
     private String description;
-    private String travelType; // business, adventure, cultural
-    private Double estimatedBudget;
-    private Integer travelers; // Nombre de voyageurs
 
     // Relations vers les journées de voyage
     @Relationship(type = "HAS_DAY", direction = Relationship.Direction.OUTGOING)
     private List<TravelDay> travelDays;
 
-    // Constructeurs
     public Travel() {}
 
     public Travel(String travelName, LocalDate startDate, LocalDate endDate, String description) {
@@ -45,7 +41,6 @@ public class Travel {
         this.description = description;
     }
 
-    // Getters et Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -61,17 +56,19 @@ public class Travel {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public String getTravelType() { return travelType; }
-    public void setTravelType(String travelType) { this.travelType = travelType; }
-
-    public Double getEstimatedBudget() { return estimatedBudget; }
-    public void setEstimatedBudget(Double estimatedBudget) { this.estimatedBudget = estimatedBudget; }
-
-    public Integer getTravelers() { return travelers; }
-    public void setTravelers(Integer travelers) { this.travelers = travelers; }
-
     public List<TravelDay> getTravelDays() { return travelDays; }
     public void setTravelDays(List<TravelDay> travelDays) { this.travelDays = travelDays; }
+
+    // Méthode utilitaire pour le budget TOTAL
+    public Double getCalculatedBudget() {
+        if (travelDays == null || travelDays.isEmpty()) {
+            return 0.0;
+        }
+        return travelDays.stream()
+                .filter(day -> day.getDailyBudget() != null)
+                .mapToDouble(TravelDay::getDailyBudget)
+                .sum();
+    }
 
     @Override
     public String toString() {
@@ -80,8 +77,6 @@ public class Travel {
                 ", travelName='" + travelName + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", travelType='" + travelType + '\'' +
-                ", travelers=" + travelers +
                 '}';
     }
 }

@@ -32,7 +32,6 @@ public class TravelDay {
     private String dayDescription;
     private Double dailyBudget;
 
-    // Constructeurs
     public TravelDay() {}
 
     public TravelDay(LocalDate date, Integer dayNumber) {
@@ -40,7 +39,6 @@ public class TravelDay {
         this.dayNumber = dayNumber;
     }
 
-    // Getters et Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

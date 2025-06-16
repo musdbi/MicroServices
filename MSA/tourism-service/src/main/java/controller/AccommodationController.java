@@ -90,7 +90,7 @@ public class AccommodationController {
         return ResponseEntity.ok(accommodationDtos);
     }
 
-    // Rechercher par nom (autocomplétion)
+    // Rechercher par nom
     @GetMapping("/search")
     public ResponseEntity<List<AccommodationDto>> searchAccommodationsByName(@RequestParam String name) {
         List<Accommodation> accommodations = accommodationService.searchAccommodationsByName(name);

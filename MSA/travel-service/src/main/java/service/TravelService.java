@@ -119,7 +119,7 @@ public class TravelService {
     }
 
     // ===============================
-    // CRUD VOYAGES (inchangé)
+    // CRUD VOYAGES
     // ===============================
 
     public List<Travel> getAllTravels() {
@@ -169,7 +169,7 @@ public class TravelService {
     }
 
     // ===============================
-    // GESTION DES JOURNÉES (avec validation)
+    // GESTION DES JOURNÉES
     // ===============================
 
     public List<TravelDay> getTravelDays(Long travelId) {
@@ -190,25 +190,25 @@ public class TravelService {
 
         boolean isLastDay = dayDto.getDate().equals(travel.getEndDate());
 
-        // RÈGLE MÉTIER : Pas d'hébergement le dernier jour
+        // Pas d'hébergement le dernier jour
         if (isLastDay && dayDto.getAccommodationId() != null) {
             dayDto.setAccommodationId(null);
             dayDto.setAccommodationCityName(null);
             dayDto.setAccommodationCityId(null);
         }
 
-        // RÈGLE MÉTIER : Hébergement obligatoire sauf dernier jour
+        // Hébergement obligatoire sauf dernier jour
         if (!isLastDay && (dayDto.getAccommodationId() == null || dayDto.getAccommodationId().isEmpty())) {
             throw new IllegalArgumentException("Hébergement obligatoire sauf le dernier jour");
         }
 
-        // VALIDATION : Vérifier que la ville d'hébergement existe
+        // Vérifier que la ville d'hébergement existe
         if (!isLastDay) {
             validateCityExists(dayDto.getAccommodationCityName());
             validateAccommodationExists(dayDto.getAccommodationId(), dayDto.getAccommodationCityName());
         }
 
-        // VALIDATION : Vérifier que toutes les activités existent
+        // Vérifier que toutes les activités existent
         List<String> activityCities = validateAndGetActivityCities(dayDto.getPlannedActivityIds());
 
         // Auto-calcul du numéro de jour si pas spécifié
@@ -283,7 +283,7 @@ public class TravelService {
     }
 
     // ===============================
-    // CONVERSIONS DTO (inchangé)
+    // CONVERSIONS DTO
     // ===============================
 
     public TravelDto convertToDto(Travel travel) {

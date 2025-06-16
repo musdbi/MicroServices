@@ -30,35 +30,6 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
     void createHasDayRelation(@Param("travelId") Long travelId, @Param("dayId") Long dayId);
 
     /**
-     * REQUÊTE NOSQL : Villes intermédiaires entre deux villes
-     * Modifiée pour utiliser les activités au lieu des CityVisit
-     */
-    @Query("MATCH (t:Travel)-[:HAS_DAY]->(td:TravelDay) " +
-            "WHERE EXISTS(td.plannedActivityIds) " +
-            "WITH t, td " +
-            "ORDER BY td.dayNumber " +
-            "WITH t, collect(td) as days " +
-            "UNWIND range(0, size(days)-1) as idx " +
-            "WITH t, days[idx] as day " +
-            "WHERE " +
-            "  (idx = 0 AND day.accommodationCityName = $startCity) OR " +
-            "  (idx = size(days)-1 AND " +
-            "   ((day.accommodationCityName = $endCity) OR " +
-            "    (day.accommodationCityName IS NULL AND idx > 0 AND days[idx-1].accommodationCityName = $endCity))) " +
-            "RETURN DISTINCT t")
-    List<Travel> findTravelsWithRoute(@Param("startCity") String startCity, @Param("endCity") String endCity);
-
-    /**
-     * Trouve les villes intermédiaires (simplifié car on n'a plus les villes visitées directement)
-     * Cette requête devra être implémentée côté service en récupérant les activités
-     */
-    @Query("MATCH (t:Travel)-[:HAS_DAY]->(td:TravelDay) " +
-            "WHERE td.accommodationCityName IS NOT NULL " +
-            "RETURN DISTINCT td.accommodationCityName as cityName " +
-            "ORDER BY cityName")
-    List<String> findAllAccommodationCities();
-
-    /**
      * Voyages qui ont un hébergement dans une ville donnée
      */
     @Query("MATCH (t:Travel)-[:HAS_DAY]->(td:TravelDay) " +

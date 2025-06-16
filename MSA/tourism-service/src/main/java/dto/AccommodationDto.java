@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * DTO pour les Hébergements
- * Utilisé pour les échanges API (request/response)
  */
 
 public class AccommodationDto {
@@ -23,7 +22,7 @@ public class AccommodationDto {
 
     private Long cityId;
 
-    private String type; // hotel, auberge, appartement, etc.
+    private String type; // pareil que pour les poi
     private String description;
 
     @Min(value = 0, message = "Price must be positive")
@@ -32,7 +31,6 @@ public class AccommodationDto {
     private List<String> reviews;
     private GeographicInfo geographicInfo;
 
-    // Constructeurs
     public AccommodationDto() {}
 
     public AccommodationDto(String name, String cityName, Long cityId, String type, String description,
@@ -47,8 +45,7 @@ public class AccommodationDto {
         this.geographicInfo = geographicInfo;
     }
 
-    // Getters et Setters
-    public String getId() { return id; }
+     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
     public String getName() { return name; }

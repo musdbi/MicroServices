@@ -17,14 +17,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/travels")
-@CrossOrigin(origins = "*")
 public class TravelController {
 
     @Autowired
     private TravelService travelService;
 
     // ===============================
-    // CRUD BASIQUE VOYAGES (inchangé)
+    // CRUD BASIQUE VOYAGES
     // ===============================
 
     @GetMapping
@@ -75,7 +74,7 @@ public class TravelController {
     }
 
     // ===============================
-    // GESTION DES JOURNÉES (simplifié)
+    // GESTION DES JOURNÉES
     // ===============================
 
     @GetMapping("/{id}/days")

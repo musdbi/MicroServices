@@ -15,9 +15,4 @@ public interface TravelDayRepository extends Neo4jRepository<TravelDay, Long> {
             "WHERE t.id = $travelId " +
             "RETURN td ORDER BY td.dayNumber ASC")
     List<TravelDay> findByTravelIdOrderByDayNumber(@Param("travelId") Long travelId);
-
-    @Query("MATCH (td:TravelDay), (cv:CityVisit) " +
-            "WHERE td.id = $dayId AND cv.id = $visitId " +
-            "CREATE (td)-[:VISITS]->(cv)")
-    void createVisitsRelation(@Param("dayId") Long dayId, @Param("visitId") Long visitId);
 }

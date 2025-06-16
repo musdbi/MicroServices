@@ -41,7 +41,6 @@ public class AccommodationService {
         }
     }
 
-    // Modifie la méthode createAccommodation
     public Accommodation createAccommodation(AccommodationDto accommodationDto) {
         // Vérifier si l'hébergement existe déjà
         if (accommodationRepository.existsByNameIgnoreCaseAndCityNameIgnoreCase(
@@ -49,7 +48,7 @@ public class AccommodationService {
             throw new RuntimeException("Accommodation already exists in this city");
         }
 
-        // VALIDATION : Vérifier que la ville existe
+        // Vérifier que la ville existe
         validateCityExists(accommodationDto.getCityName());
 
         // Convertir DTO vers entité
@@ -97,7 +96,7 @@ public class AccommodationService {
         return accommodationRepository.findByCityNameIgnoreCaseAndTypeIgnoreCase(cityName, type);
     }
 
-    // Rechercher par nom (autocomplétion)
+    // Rechercher par nom
     public List<Accommodation> searchAccommodationsByName(String name) {
         return accommodationRepository.findByNameContainingIgnoreCase(name);
     }

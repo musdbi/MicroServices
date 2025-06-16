@@ -28,7 +28,7 @@ public class Accommodation {
     @Indexed
     private Long cityId;
 
-    private String type; // hotel, auberge, appartement, etc.
+    private String type; // pareil que pour les poi
     private String description;
 
     @Min(value = 0, message = "Price must be positive")
