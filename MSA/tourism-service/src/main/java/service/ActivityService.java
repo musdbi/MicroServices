@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ArrayList;
@@ -68,11 +67,6 @@ public class ActivityService {
                 activityDto.getDepartureLocation(),
                 activityDto.getGeographicInfo()
         );
-
-        // Définir les dates spécifiques si présentes
-        activity.setStartDate(activityDto.getStartDate());
-        activity.setEndDate(activityDto.getEndDate());
-
         return activityRepository.save(activity);
     }
 
@@ -106,25 +100,9 @@ public class ActivityService {
         return activityRepository.findByPointOfInterestIdsContaining(pointOfInterestId);
     }
 
-    // REQUÊTE NOSQL : Activités entre avril et juin (mois 4, 5, 6)
-    public List<Activity> getActivitiesBetweenAprilAndJune() {
-        List<Integer> months = Arrays.asList(4, 5, 6); // Avril, Mai, Juin
-        return activityRepository.findByAvailableMonthsIn(months);
-    }
-
     // Activités disponibles dans des mois spécifiques
     public List<Activity> getActivitiesByMonths(List<Integer> months) {
         return activityRepository.findByAvailableMonthsIn(months);
-    }
-
-    // Activités disponibles sur une période
-    public List<Activity> getActivitiesAvailableBetween(LocalDate startDate, LocalDate endDate) {
-        // Extraire les mois de la période
-        List<Integer> months = new ArrayList<>();
-        for (int month = startDate.getMonthValue(); month <= endDate.getMonthValue(); month++) {
-            months.add(month);
-        }
-        return activityRepository.findActivitiesAvailableBetween(startDate, endDate, months);
     }
 
     // Rechercher par nom (autocomplétion)
@@ -192,8 +170,6 @@ public class ActivityService {
             existingActivity.setPrice(activityDto.getPrice());
             existingActivity.setDurationMinutes(activityDto.getDurationMinutes());
             existingActivity.setAvailableMonths(activityDto.getAvailableMonths());
-            existingActivity.setStartDate(activityDto.getStartDate());
-            existingActivity.setEndDate(activityDto.getEndDate());
             existingActivity.setDepartureLocation(activityDto.getDepartureLocation());
             existingActivity.setGeographicInfo(activityDto.getGeographicInfo());
             return activityRepository.save(existingActivity);
@@ -221,8 +197,6 @@ public class ActivityService {
         dto.setPrice(activity.getPrice());
         dto.setDurationMinutes(activity.getDurationMinutes());
         dto.setAvailableMonths(activity.getAvailableMonths());
-        dto.setStartDate(activity.getStartDate());
-        dto.setEndDate(activity.getEndDate());
         dto.setDepartureLocation(activity.getDepartureLocation());
         dto.setGeographicInfo(activity.getGeographicInfo());
         return dto;

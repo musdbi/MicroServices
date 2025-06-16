@@ -4,7 +4,6 @@ import model.GeographicInfo;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Min;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -35,9 +34,6 @@ public class ActivityDto {
     private Integer durationMinutes;
 
     private List<Integer> availableMonths; // 1-12 pour janvier-décembre
-
-    private LocalDate startDate; // Date de début spécifique (optionnel)
-    private LocalDate endDate;   // Date de fin spécifique (optionnel)
 
     private String departureLocation; // Lieu de départ
     private GeographicInfo geographicInfo; // Coordonnées du point de départ
@@ -91,12 +87,6 @@ public class ActivityDto {
 
     public List<Integer> getAvailableMonths() { return availableMonths; }
     public void setAvailableMonths(List<Integer> availableMonths) { this.availableMonths = availableMonths; }
-
-    public LocalDate getStartDate() { return startDate; }
-    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
-
-    public LocalDate getEndDate() { return endDate; }
-    public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
 
     public String getDepartureLocation() { return departureLocation; }
     public void setDepartureLocation(String departureLocation) { this.departureLocation = departureLocation; }

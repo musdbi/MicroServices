@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.Valid;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Arrays;
@@ -72,32 +71,10 @@ public class ActivityController {
         return ResponseEntity.ok(activityDtos);
     }
 
-    // REQUÊTE NOSQL : Activités entre avril et juin
-    @GetMapping("/april-to-june")
-    public ResponseEntity<List<ActivityDto>> getActivitiesBetweenAprilAndJune() {
-        List<Activity> activities = activityService.getActivitiesBetweenAprilAndJune();
-        List<ActivityDto> activityDtos = activities.stream()
-                .map(activityService::convertToDto)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(activityDtos);
-    }
-
     // Activités disponibles dans des mois spécifiques
     @GetMapping("/months")
     public ResponseEntity<List<ActivityDto>> getActivitiesByMonths(@RequestParam List<Integer> months) {
         List<Activity> activities = activityService.getActivitiesByMonths(months);
-        List<ActivityDto> activityDtos = activities.stream()
-                .map(activityService::convertToDto)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(activityDtos);
-    }
-
-    // Activités disponibles sur une période
-    @GetMapping("/period")
-    public ResponseEntity<List<ActivityDto>> getActivitiesAvailableBetween(
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
-        List<Activity> activities = activityService.getActivitiesAvailableBetween(startDate, endDate);
         List<ActivityDto> activityDtos = activities.stream()
                 .map(activityService::convertToDto)
                 .collect(Collectors.toList());

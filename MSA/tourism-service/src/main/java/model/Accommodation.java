@@ -38,7 +38,6 @@ public class Accommodation {
 
     private GeographicInfo geographicInfo;
 
-    // Constructeurs
     public Accommodation() {}
 
     public Accommodation(String name, String cityName, Long cityId, String type, String description,
@@ -53,7 +52,6 @@ public class Accommodation {
         this.geographicInfo = geographicInfo;
     }
 
-    // Getters et Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

@@ -1,12 +1,12 @@
 package model;
 
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.index.Indexed;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Min;
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -41,11 +41,8 @@ public class Activity {
     @Min(value = 1, message = "Duration must be positive")
     private Integer durationMinutes;
 
+    @NotEmpty(message = "Available months cannot be empty")
     private List<Integer> availableMonths;
-
-    // Dates spécifiques de disponibilité (optionnel)
-    private LocalDate startDate;
-    private LocalDate endDate;
 
     // Lieu de départ de l'activité (optionnel)
     private String departureLocation;
@@ -53,7 +50,6 @@ public class Activity {
     // Coordonnées géographiques du point de départ
     private GeographicInfo geographicInfo;
 
-    // Constructeurs
     public Activity() {}
 
     public Activity(String name, String cityName, Long cityId, List<String> pointOfInterestIds, String type,
@@ -72,7 +68,6 @@ public class Activity {
         this.geographicInfo = geographicInfo;
     }
 
-    // Getters et Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -102,12 +97,6 @@ public class Activity {
 
     public List<Integer> getAvailableMonths() { return availableMonths; }
     public void setAvailableMonths(List<Integer> availableMonths) { this.availableMonths = availableMonths; }
-
-    public LocalDate getStartDate() { return startDate; }
-    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
-
-    public LocalDate getEndDate() { return endDate; }
-    public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
 
     public String getDepartureLocation() { return departureLocation; }
     public void setDepartureLocation(String departureLocation) { this.departureLocation = departureLocation; }
