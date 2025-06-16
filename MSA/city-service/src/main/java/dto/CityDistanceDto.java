@@ -2,7 +2,6 @@ package dto;
 
 /**
  * DTO pour représenter la distance et le temps de trajet entre deux villes
- * Répond aux requêtes du projet NoSQL sur les distances
  */
 public class CityDistanceDto {
 
@@ -11,7 +10,6 @@ public class CityDistanceDto {
     private double distanceKm;
     private double travelTimeHours;
 
-    // Constructeurs
     public CityDistanceDto() {}
 
     public CityDistanceDto(String cityName1, String cityName2, double distanceKm, double travelTimeHours) {
@@ -21,7 +19,6 @@ public class CityDistanceDto {
         this.travelTimeHours = travelTimeHours;
     }
 
-    // Getters et Setters
     public String getCityName1() {
         return cityName1;
     }
@@ -54,7 +51,7 @@ public class CityDistanceDto {
         this.travelTimeHours = travelTimeHours;
     }
 
-    // Méthodes utilitaires
+    // Méthodes utilitaires : sous formes de XX hours XX minutes
     public String getTravelTimeFormatted() {
         int hours = (int) travelTimeHours;
         int minutes = (int) ((travelTimeHours - hours) * 60);

@@ -31,7 +31,6 @@ public class PointOfInterest {
 
     private GeographicInfo geographicInfo;
 
-    // Constructeurs
     public PointOfInterest() {}
 
     public PointOfInterest(String name, String cityName, Long cityId, String type, String description, GeographicInfo geographicInfo) {
@@ -43,7 +42,6 @@ public class PointOfInterest {
         this.geographicInfo = geographicInfo;
     }
 
-    // Getters et Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

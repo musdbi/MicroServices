@@ -86,7 +86,6 @@ public class CityService {
 
     /**
      * Recherche les villes dans un rayon donné
-     * Répond à la requête NoSQL : "Quelles sont les villes situées à moins de 10km d'une ville donnée ?"
      */
     public List<City> getCitiesWithinRadius(String cityName, Double radiusKm) {
         Optional<City> referenceCity = getCityByName(cityName);
@@ -159,12 +158,5 @@ public class CityService {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         return EARTH_RADIUS_KM * c;
-    }
-
-    /**
-     * Recherche de villes par nom partiel
-     */
-    public List<City> searchCitiesByName(String searchTerm) {
-        return cityRepository.findByNameContaining(searchTerm);
     }
 }

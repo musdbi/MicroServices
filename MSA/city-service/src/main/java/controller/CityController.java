@@ -18,7 +18,6 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/cities")
-@CrossOrigin(origins = "*") // Pour permettre les appels depuis le frontend
 public class CityController {
 
     @Autowired
@@ -111,12 +110,11 @@ public class CityController {
     /**
      * GET /api/cities/nearby?city={cityName}&radius={radiusKm}
      * Trouve les villes dans un rayon donné
-     * Répond à la requête NoSQL : "Quelles sont les villes situées à moins de 10km d'une ville donnée ?"
      */
     @GetMapping("/nearby")
     public ResponseEntity<List<City>> getCitiesWithinRadius(
             @RequestParam String city,
-            @RequestParam(defaultValue = "10.0") Double radius) {
+            @RequestParam(defaultValue = "50.0") Double radius) {
         try {
             List<City> cities = cityService.getCitiesWithinRadius(city, radius);
             return ResponseEntity.ok(cities);
@@ -128,7 +126,6 @@ public class CityController {
     /**
      * GET /api/cities/distance?city1={cityName1}&city2={cityName2}
      * Calcule la distance et le temps de trajet entre deux villes
-     * Répond à la requête NoSQL : "Quel est le temps de trajet et la distance entre 2 villes données ?"
      */
     @GetMapping("/distance")
     public ResponseEntity<CityDistanceDto> calculateDistance(
@@ -140,16 +137,6 @@ public class CityController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
-    }
-
-    /**
-     * GET /api/cities/autocomplete?term={searchTerm}
-     * Recherche de villes par nom partiel (pour l'autocomplétion)
-     */
-    @GetMapping("/autocomplete")
-    public ResponseEntity<List<City>> searchCities(@RequestParam String term) {
-        List<City> cities = cityService.searchCitiesByName(term);
-        return ResponseEntity.ok(cities);
     }
 
     /**
