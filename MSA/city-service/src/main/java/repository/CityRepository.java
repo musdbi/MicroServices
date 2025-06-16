@@ -11,7 +11,6 @@ import java.util.Optional;
 
 /**
  * Repository pour l'entité City
- * Spring Data JPA génère automatiquement les implémentations
  */
 
 @Repository
@@ -58,10 +57,4 @@ public interface CityRepository extends JpaRepository<City, Long> {
             @Param("longitude") Double longitude,
             @Param("radiusKm") Double radiusKm
     );
-
-    /**
-     * Recherche de villes par nom partiel (pour l'autocomplétion)
-     */
-    @Query("SELECT c FROM City c WHERE LOWER(c.cityName) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
-    List<City> findByNameContaining(@Param("searchTerm") String searchTerm);
 }

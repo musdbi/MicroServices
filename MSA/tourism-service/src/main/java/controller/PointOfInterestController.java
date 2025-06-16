@@ -49,7 +49,7 @@ public class PointOfInterestController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Récupérer les POI par ville
+    // Récupérer les POI par le nom de la ville
     @GetMapping("/city/{cityName}")
     public ResponseEntity<List<PointOfInterestDto>> getPointsOfInterestByCity(@PathVariable String cityName) {
         List<PointOfInterest> pois = poiService.getPointsOfInterestByCity(cityName);
