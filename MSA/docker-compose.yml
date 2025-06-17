@@ -1,0 +1,99 @@
+version: '3.8'
+
+networks:
+  msa-network:
+    driver: bridge
+
+services:
+
+  city-service:
+    build:
+      context: ./city-service
+      dockerfile: Dockerfile
+    container_name: msa-city-service
+    ports:
+      - "8081:8081"
+    networks:
+      - msa-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/api/cities/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  tourism-service:
+    build:
+      context: ./tourism-service
+      dockerfile: Dockerfile
+    container_name: msa-tourism-service
+    environment:
+      SERVICES_CITY_SERVICE_URL: http://city-service:8081
+    ports:
+      - "8082:8082"
+    depends_on:
+      city-service:
+        condition: service_healthy
+    networks:
+      - msa-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/api/tourism/poi/test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  travel-service:
+    build:
+      context: ./travel-service
+      dockerfile: Dockerfile
+    container_name: msa-travel-service
+    environment:
+      SERVICES_CITY_SERVICE_URL: http://city-service:8081
+      SERVICES_TOURISM_SERVICE_URL: http://tourism-service:8082
+    ports:
+      - "8083:8083"
+    depends_on:
+      city-service:
+        condition: service_healthy
+      tourism-service:
+        condition: service_healthy
+    networks:
+      - msa-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/api/travels/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  gateway-service:
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    container_name: msa-gateway-service
+    environment:
+      MICROSERVICES_CITY_SERVICE_URL: http://city-service:8081
+      MICROSERVICES_TOURISM_SERVICE_URL: http://tourism-service:8082
+      MICROSERVICES_TRAVEL_SERVICE_URL: http://travel-service:8083
+    ports:
+      - "8080:8080"
+    depends_on:
+      city-service:
+        condition: service_healthy
+      tourism-service:
+        condition: service_healthy
+      travel-service:
+        condition: service_healthy
+    networks:
+      - msa-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
