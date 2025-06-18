@@ -8,6 +8,7 @@ service\PointOfInterestService.class
 dto\PointOfInterestDto.class
 service\ActivityService.class
 controller\PointOfInterestController.class
+config\RestTemplateConfig.class
 service\AccommodationService.class
 controller\AccommodationController.class
 model\GeographicInfo.class

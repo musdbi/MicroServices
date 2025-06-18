@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: service.CityServiceTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.21 s -- in service.CityServiceTest

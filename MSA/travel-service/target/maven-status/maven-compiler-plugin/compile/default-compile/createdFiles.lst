@@ -1,13 +1,10 @@
-repository\CityVisitRepository.class
 model\Travel.class
-dto\TravelDayDto.class
-model\CityVisit.class
-dto\CityVisitDto.class
-model\TravelDay.class
-service\TravelService.class
-exception\GlobalExceptionHandler.class
 application\TravelServiceApplication.class
+dto\TravelDayDto.class
 controller\TravelController.class
 repository\TravelRepository.class
 dto\TravelDto.class
 repository\TravelDayRepository.class
+model\TravelDay.class
+service\TravelService.class
+config\RestTemplateConfig.class

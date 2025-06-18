@@ -1,3 +1,4 @@
+config\TestConfig.class
 model\GeographicInfo.class
 service\CityService.class
 controller\CityController.class
