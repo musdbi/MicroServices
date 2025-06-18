@@ -37,17 +37,33 @@ public class TravelController {
 
     @GetMapping("/{id}")
     public ResponseEntity<TravelDto> getTravelById(@PathVariable Long id) {
-        Optional<Travel> travel = travelService.getTravelById(id);
-        return travel.map(t -> ResponseEntity.ok(travelService.convertToDto(t)))
-                .orElse(ResponseEntity.notFound().build());
+        try {
+            Optional<Travel> travel = travelService.getTravelById(id);
+            if (travel.isPresent()) {
+                return ResponseEntity.ok(travelService.convertToDto(travel.get()));
+            } else {
+                // Log pour debug
+                System.err.println("❌ Travel avec ID " + id + " non trouvé");
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            // Log pour debug
+            System.err.println("❌ Erreur lors de la récupération du voyage ID " + id + ": " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PostMapping
     public ResponseEntity<TravelDto> createTravel(@Valid @RequestBody TravelDto travelDto) {
         try {
             Travel createdTravel = travelService.createTravel(travelDto);
+            TravelDto responseDto = travelService.convertToDto(createdTravel);
+
+            System.out.println("Created Travel with ID: " + createdTravel.getId());
+
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(travelService.convertToDto(createdTravel));
+                    .body(responseDto);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }

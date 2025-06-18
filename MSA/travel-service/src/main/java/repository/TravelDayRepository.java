@@ -12,7 +12,7 @@ import java.util.List;
 public interface TravelDayRepository extends Neo4jRepository<TravelDay, Long> {
 
     @Query("MATCH (t:Travel)-[:HAS_DAY]->(td:TravelDay) " +
-            "WHERE t.id = $travelId " +
+            "WHERE ID(t) = $travelId " +
             "RETURN td ORDER BY td.dayNumber ASC")
     List<TravelDay> findByTravelIdOrderByDayNumber(@Param("travelId") Long travelId);
 }
