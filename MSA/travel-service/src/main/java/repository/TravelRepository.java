@@ -14,18 +14,20 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
 
     /**
      * Trouve un voyage avec toutes ses relations
+     * CHANGEMENT: Utilise ID(t) au lieu de t.id
      */
     @Query("MATCH (t:Travel) " +
-            "WHERE t.id = $travelId " +
+            "WHERE ID(t) = $travelId " +
             "OPTIONAL MATCH (t)-[:HAS_DAY]->(td:TravelDay) " +
             "RETURN t, collect(td)")
     Optional<Travel> findTravelWithAllRelations(@Param("travelId") Long travelId);
 
     /**
      * Crée la relation HAS_DAY entre Travel et TravelDay
+     * CHANGEMENT: Utilise ID(td) au lieu de td.id
      */
     @Query("MATCH (t:Travel), (td:TravelDay) " +
-            "WHERE t.id = $travelId AND td.id = $dayId " +
+            "WHERE ID(t) = $travelId AND ID(td) = $dayId " +
             "CREATE (t)-[:HAS_DAY]->(td)")
     void createHasDayRelation(@Param("travelId") Long travelId, @Param("dayId") Long dayId);
 
@@ -39,7 +41,7 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
 
     /**
      * REQUÊTE NOSQL : Trouve les villes intermédiaires entre deux villes
-     * Basée sur les hébergements (car on n'a plus accès direct aux villes des activités)
+     * Basée sur les hébergements
      */
     @Query("MATCH (t:Travel)-[:HAS_DAY]->(td1:TravelDay), " +
             "(t)-[:HAS_DAY]->(td2:TravelDay), " +
