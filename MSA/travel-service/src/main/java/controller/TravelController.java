@@ -160,7 +160,7 @@ public class TravelController {
 
     @GetMapping("/health")
     public ResponseEntity<String> health() {
-        return ResponseEntity.ok("Travel Service is running! 🚀");
+        return ResponseEntity.ok("Travel Service is running!");
     }
 
     @GetMapping("/test")
