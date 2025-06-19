@@ -118,9 +118,7 @@ public class TravelService {
         return cities;
     }
 
-    // ===============================
     // CRUD VOYAGES
-    // ===============================
 
     public List<Travel> getAllTravels() {
         return travelRepository.findAll();
@@ -165,12 +163,24 @@ public class TravelService {
         if (!travelRepository.existsById(id)) {
             throw new IllegalArgumentException("Travel with ID " + id + " not found");
         }
-        travelRepository.deleteById(id);
+        travelRepository.deleteTravelWithCascade(id);
     }
 
-    // ===============================
+    /**
+     * MÉTHODE DE NETTOYAGE
+     * Supprime les TravelDay orphelins (sans Travel parent) - OPTIONNEL MAIS UTILE
+     */
+    public void cleanupOrphanedTravelDays() {
+        Long orphanedCount = travelRepository.countOrphanedTravelDays();
+
+        if (orphanedCount > 0) {
+            travelRepository.deleteOrphanedTravelDays();
+        } else {
+            System.out.println("Aucun TravelDay orphelin trouvé!");
+        }
+    }
+
     // GESTION DES JOURNÉES
-    // ===============================
 
     public List<TravelDay> getTravelDays(Long travelId) {
         if (!travelRepository.existsById(travelId)) {
@@ -263,9 +273,7 @@ public class TravelService {
         travelDayRepository.deleteById(dayId);
     }
 
-    // ===============================
     // REQUÊTES NOSQL
-    // ===============================
 
     public List<String> findIntermediateCities(String startCity, String endCity) {
         // Valider que les villes de départ et d'arrivée existent
@@ -282,9 +290,7 @@ public class TravelService {
         return travelRepository.findTravelsByCityVisited(cityName);
     }
 
-    // ===============================
     // CONVERSIONS DTO
-    // ===============================
 
     public TravelDto convertToDto(Travel travel) {
         TravelDto dto = new TravelDto();

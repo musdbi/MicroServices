@@ -22,9 +22,7 @@ public class TravelController {
     @Autowired
     private TravelService travelService;
 
-    // ===============================
     // CRUD BASIQUE VOYAGES
-    // ===============================
 
     @GetMapping
     public ResponseEntity<List<TravelDto>> getAllTravels() {
@@ -89,9 +87,22 @@ public class TravelController {
         }
     }
 
-    // ===============================
+    /**
+     * NETTOYAGE DES DONNÉES ORPHELINES
+     * Supprime tous les TravelDay qui n'ont plus de Travel parent
+     */
+    @PostMapping("/cleanup-orphaned")
+    public ResponseEntity<String> cleanupOrphanedTravelDays() {
+        try {
+            travelService.cleanupOrphanedTravelDays();
+            return ResponseEntity.ok("{\"message\":\"Orphaned TravelDays cleanup completed\"}");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"error\":\"Cleanup failed: " + e.getMessage() + "\"}");
+        }
+    }
+
     // GESTION DES JOURNÉES
-    // ===============================
 
     @GetMapping("/{id}/days")
     public ResponseEntity<List<TravelDayDto>> getTravelDays(@PathVariable Long id) {
@@ -133,9 +144,7 @@ public class TravelController {
         }
     }
 
-    // ===============================
     // REQUÊTE NOSQL PRINCIPALE
-    // ===============================
 
     /**
      * Villes possibles à visiter entre deux villes
