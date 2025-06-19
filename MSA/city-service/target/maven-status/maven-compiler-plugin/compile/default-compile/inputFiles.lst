@@ -1,7 +1,8 @@
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\application\CityServiceApplication.java
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\controller\CityController.java
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\dto\CityDistanceDto.java
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\model\City.java
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\model\GeographicInfo.java
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\repository\CityRepository.java
-C:\Programmation\IntelliJ\MicroServices\MSA\city-service\src\main\java\service\CityService.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\application\CityServiceApplication.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\config\TestConfig.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\controller\CityController.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\dto\CityDistanceDto.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\model\City.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\model\GeographicInfo.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\repository\CityRepository.java
+C:\Programmation\WS\MicroServices\MSA\city-service\src\main\java\service\CityService.java

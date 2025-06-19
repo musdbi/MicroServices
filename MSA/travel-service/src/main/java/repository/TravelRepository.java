@@ -14,7 +14,6 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
 
     /**
      * Trouve un voyage avec toutes ses relations
-     * CHANGEMENT: Utilise ID(t) au lieu de t.id
      */
     @Query("MATCH (t:Travel) " +
             "WHERE ID(t) = $travelId " +
@@ -24,7 +23,6 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
 
     /**
      * Crée la relation HAS_DAY entre Travel et TravelDay
-     * CHANGEMENT: Utilise ID(td) au lieu de td.id
      */
     @Query("MATCH (t:Travel), (td:TravelDay) " +
             "WHERE ID(t) = $travelId AND ID(td) = $dayId " +
@@ -41,7 +39,7 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
 
     /**
      * REQUÊTE NOSQL : Trouve les villes intermédiaires entre deux villes
-     * Basée sur les hébergements
+     * Basée sur les hébergements !!!
      */
     @Query("MATCH (t:Travel)-[:HAS_DAY]->(td1:TravelDay), " +
             "(t)-[:HAS_DAY]->(td2:TravelDay), " +
@@ -55,4 +53,29 @@ public interface TravelRepository extends Neo4jRepository<Travel, Long> {
             "AND tdMiddle.dayNumber < td2.dayNumber " +
             "RETURN DISTINCT tdMiddle.accommodationCityName as cityName")
     List<String> findIntermediateCities(@Param("startCity") String startCity, @Param("endCity") String endCity);
+
+    /**
+     * SUPPRESSION EN CASCADE - Supprime un voyage et tous ses TravelDay associés
+     */
+    @Query("MATCH (t:Travel) " +
+            "WHERE ID(t) = $travelId " +
+            "OPTIONAL MATCH (t)-[:HAS_DAY]->(td:TravelDay) " +
+            "DETACH DELETE t, td")
+    void deleteTravelWithCascade(@Param("travelId") Long travelId);
+
+    /**
+     * Compte le nombre de TravelDay orphelins (sans Travel parent)
+     */
+    @Query("MATCH (td:TravelDay) " +
+            "WHERE NOT EXISTS { MATCH (:Travel)-[:HAS_DAY]->(td) } " +
+            "RETURN count(td)")
+    Long countOrphanedTravelDays();
+
+    /**
+     * Supprime tous les TravelDay orphelins
+     */
+    @Query("MATCH (td:TravelDay) " +
+            "WHERE NOT EXISTS { MATCH (:Travel)-[:HAS_DAY]->(td) } " +
+            "DETACH DELETE td")
+    void deleteOrphanedTravelDays();
 }

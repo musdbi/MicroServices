@@ -13,7 +13,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -31,5 +31,5 @@ management:
 
 logging:
   level:
-    fr.dauphine.miageif.msa.cityservice: INFO
+    cityservice: INFO
     org.springframework.web: INFO

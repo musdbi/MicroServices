@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="service.CityServiceTest" time="11.208" tests="14" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Programmation\WS\MicroServices\MSA\city-service\target\test-classes;C:\Programmation\WS\MicroServices\MSA\city-service\target\classes;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.4\spring-boot-starter-web-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.4\spring-boot-starter-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.4\spring-boot-starter-logging-3.4.4.jar;C:\Users\mumus\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\mumus\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\mumus\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\mumus\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\mumus\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\mumus\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\mumus\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.4\spring-boot-starter-json-3.4.4.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.3\jackson-datatype-jdk8-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.3\jackson-datatype-jsr310-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.3\jackson-module-parameter-names-2.18.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.4.4\spring-boot-starter-tomcat-3.4.4.jar;C:\Users\mumus\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.39\tomcat-embed-core-10.1.39.jar;C:\Users\mumus\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.39\tomcat-embed-websocket-10.1.39.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-web\6.2.5\spring-web-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-beans\6.2.5\spring-beans-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-webmvc\6.2.5\spring-webmvc-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-aop\6.2.5\spring-aop-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-context\6.2.5\spring-context-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-expression\6.2.5\spring-expression-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.4.4\spring-boot-starter-data-jpa-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.4.4\spring-boot-starter-jdbc-3.4.4.jar;C:\Users\mumus\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-jdbc\6.2.5\spring-jdbc-6.2.5.jar;C:\Users\mumus\.m2\repository\org\hibernate\orm\hibernate-core\6.6.11.Final\hibernate-core-6.6.11.Final.jar;C:\Users\mumus\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\mumus\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\mumus\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\mumus\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\mumus\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\mumus\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\mumus\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\mumus\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\mumus\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\mumus\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\mumus\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\mumus\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\mumus\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\mumus\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\mumus\.m2\repository\org\springframework\data\spring-data-jpa\3.4.4\spring-data-jpa-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\data\spring-data-commons\3.4.4\spring-data-commons-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-orm\6.2.5\spring-orm-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-tx\6.2.5\spring-tx-6.2.5.jar;C:\Users\mumus\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-aspects\6.2.5\spring-aspects-6.2.5.jar;C:\Users\mumus\.m2\repository\org\aspectj\aspectjweaver\1.9.23\aspectjweaver-1.9.23.jar;C:\Users\mumus\.m2\repository\org\postgresql\postgresql\42.7.2\postgresql-42.7.2.jar;C:\Users\mumus\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\mumus\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.4.4\spring-boot-starter-validation-3.4.4.jar;C:\Users\mumus\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.39\tomcat-embed-el-10.1.39.jar;C:\Users\mumus\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.2.Final\hibernate-validator-8.0.2.Final.jar;C:\Users\mumus\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.3\jackson-databind-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.3\jackson-annotations-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.3\jackson-core-2.18.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.4.4\spring-boot-starter-actuator-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.4.4\spring-boot-actuator-autoconfigure-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-actuator\3.4.4\spring-boot-actuator-3.4.4.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-observation\1.14.5\micrometer-observation-1.14.5.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-commons\1.14.5\micrometer-commons-1.14.5.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-jakarta9\1.14.5\micrometer-jakarta9-1.14.5.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-core\1.14.5\micrometer-core-1.14.5.jar;C:\Users\mumus\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\mumus\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-devtools\3.4.4\spring-boot-devtools-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot\3.4.4\spring-boot-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.4\spring-boot-autoconfigure-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.4.4\spring-boot-starter-test-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-test\3.4.4\spring-boot-test-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.4\spring-boot-test-autoconfigure-3.4.4.jar;C:\Users\mumus\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\mumus\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\mumus\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\mumus\.m2\repository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;C:\Users\mumus\.m2\repository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;C:\Users\mumus\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\mumus\.m2\repository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;C:\Users\mumus\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\mumus\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\mumus\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\mumus\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\mumus\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\mumus\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\mumus\.m2\repository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;C:\Users\mumus\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\mumus\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\mumus\.m2\repository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;C:\Users\mumus\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\mumus\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-core\6.2.5\spring-core-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-jcl\6.2.5\spring-jcl-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-test\6.2.5\spring-test-6.2.5.jar;C:\Users\mumus\.m2\repository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="APPLICATION_NAME" value="city-service"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="FR"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\mumus\AppData\Local\Temp\surefire14558405379780733796\surefirebooter-20250618202545185_3.jar C:\Users\mumus\AppData\Local\Temp\surefire14558405379780733796 2025-06-18T20-25-45_019-jvmRun1 surefire-20250618202545185_1tmp surefire_0-20250618202545185_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Programmation\WS\MicroServices\MSA\city-service\target\test-classes;C:\Programmation\WS\MicroServices\MSA\city-service\target\classes;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.4\spring-boot-starter-web-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.4\spring-boot-starter-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.4\spring-boot-starter-logging-3.4.4.jar;C:\Users\mumus\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\mumus\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\mumus\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\mumus\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\mumus\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\mumus\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\mumus\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.4\spring-boot-starter-json-3.4.4.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.18.3\jackson-datatype-jdk8-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.18.3\jackson-datatype-jsr310-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.18.3\jackson-module-parameter-names-2.18.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.4.4\spring-boot-starter-tomcat-3.4.4.jar;C:\Users\mumus\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.39\tomcat-embed-core-10.1.39.jar;C:\Users\mumus\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.39\tomcat-embed-websocket-10.1.39.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-web\6.2.5\spring-web-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-beans\6.2.5\spring-beans-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-webmvc\6.2.5\spring-webmvc-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-aop\6.2.5\spring-aop-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-context\6.2.5\spring-context-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-expression\6.2.5\spring-expression-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.4.4\spring-boot-starter-data-jpa-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.4.4\spring-boot-starter-jdbc-3.4.4.jar;C:\Users\mumus\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-jdbc\6.2.5\spring-jdbc-6.2.5.jar;C:\Users\mumus\.m2\repository\org\hibernate\orm\hibernate-core\6.6.11.Final\hibernate-core-6.6.11.Final.jar;C:\Users\mumus\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\mumus\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\mumus\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\mumus\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\mumus\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\mumus\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\mumus\.m2\repository\net\bytebuddy\byte-buddy\1.15.11\byte-buddy-1.15.11.jar;C:\Users\mumus\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\mumus\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\mumus\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\mumus\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\mumus\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\mumus\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\mumus\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\mumus\.m2\repository\org\springframework\data\spring-data-jpa\3.4.4\spring-data-jpa-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\data\spring-data-commons\3.4.4\spring-data-commons-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-orm\6.2.5\spring-orm-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-tx\6.2.5\spring-tx-6.2.5.jar;C:\Users\mumus\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-aspects\6.2.5\spring-aspects-6.2.5.jar;C:\Users\mumus\.m2\repository\org\aspectj\aspectjweaver\1.9.23\aspectjweaver-1.9.23.jar;C:\Users\mumus\.m2\repository\org\postgresql\postgresql\42.7.2\postgresql-42.7.2.jar;C:\Users\mumus\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\mumus\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.4.4\spring-boot-starter-validation-3.4.4.jar;C:\Users\mumus\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.39\tomcat-embed-el-10.1.39.jar;C:\Users\mumus\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.2.Final\hibernate-validator-8.0.2.Final.jar;C:\Users\mumus\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.3\jackson-databind-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.3\jackson-annotations-2.18.3.jar;C:\Users\mumus\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.3\jackson-core-2.18.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.4.4\spring-boot-starter-actuator-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.4.4\spring-boot-actuator-autoconfigure-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-actuator\3.4.4\spring-boot-actuator-3.4.4.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-observation\1.14.5\micrometer-observation-1.14.5.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-commons\1.14.5\micrometer-commons-1.14.5.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-jakarta9\1.14.5\micrometer-jakarta9-1.14.5.jar;C:\Users\mumus\.m2\repository\io\micrometer\micrometer-core\1.14.5\micrometer-core-1.14.5.jar;C:\Users\mumus\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\mumus\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-devtools\3.4.4\spring-boot-devtools-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot\3.4.4\spring-boot-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.4\spring-boot-autoconfigure-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.4.4\spring-boot-starter-test-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-test\3.4.4\spring-boot-test-3.4.4.jar;C:\Users\mumus\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.4.4\spring-boot-test-autoconfigure-3.4.4.jar;C:\Users\mumus\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\mumus\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\mumus\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\mumus\.m2\repository\net\minidev\json-smart\2.5.2\json-smart-2.5.2.jar;C:\Users\mumus\.m2\repository\net\minidev\accessors-smart\2.5.2\accessors-smart-2.5.2.jar;C:\Users\mumus\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\mumus\.m2\repository\org\assertj\assertj-core\3.26.3\assertj-core-3.26.3.jar;C:\Users\mumus\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\mumus\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\mumus\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\mumus\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\mumus\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\mumus\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\mumus\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\mumus\.m2\repository\org\mockito\mockito-core\5.14.2\mockito-core-5.14.2.jar;C:\Users\mumus\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.11\byte-buddy-agent-1.15.11.jar;C:\Users\mumus\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\mumus\.m2\repository\org\mockito\mockito-junit-jupiter\5.14.2\mockito-junit-jupiter-5.14.2.jar;C:\Users\mumus\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\mumus\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-core\6.2.5\spring-core-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-jcl\6.2.5\spring-jcl-6.2.5.jar;C:\Users\mumus\.m2\repository\org\springframework\spring-test\6.2.5\spring-test-6.2.5.jar;C:\Users\mumus\.m2\repository\org\xmlunit\xmlunit-core\2.10.0\xmlunit-core-2.10.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\mumus"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Programmation\WS\MicroServices\MSA\city-service"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="windows-1252"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\mumus\AppData\Local\Temp\surefire14558405379780733796\surefirebooter-20250618202545185_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.6+10"/>
+    <property name="user.name" value="mumus"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-17.0.6+10"/>
+    <property name="localRepository" value="C:\Users\mumus\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\mumus\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2024.3.6"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="17.0.6"/>
+    <property name="user.dir" value="C:\Programmation\WS\MicroServices\MSA\city-service"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="22196"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="windows-1252"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.6.10-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Java\jdk-21\bin;C:\Program Files\nodejs\;C:\Users\mumus\AppData\Local\Microsoft\WindowsApps;C:\Users\mumus\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mumus\OneDrive\Documents\apache-maven-3.9.2-bin\apache-maven-3.9.2\bin;C:\msys64\ucrt64\bin;C:\Program Files\apache-maven-3.9.9\bin;C:\Users\mumus\AppData\Roaming\npm;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="17.0.6+10"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[city-service] "/>
+  </properties>
+  <testcase name="testCreateParis" classname="service.CityServiceTest" time="1.403">
+    <system-out><![CDATA[20:25:46.532 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2025-06-18T20:25:46.954+02:00  INFO 22196 --- [city-service] [           main] service.CityServiceTest                  : Starting CityServiceTest using Java 17.0.6 with PID 22196 (started by mumus in C:\Programmation\WS\MicroServices\MSA\city-service)
+2025-06-18T20:25:46.955+02:00  INFO 22196 --- [city-service] [           main] service.CityServiceTest                  : No active profile set, falling back to 1 default profile: "default"
+2025-06-18T20:25:47.821+02:00  INFO 22196 --- [city-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-18T20:25:47.873+02:00  INFO 22196 --- [city-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interface.
+2025-06-18T20:25:49.190+02:00  INFO 22196 --- [city-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-18T20:25:49.294+02:00  INFO 22196 --- [city-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-06-18T20:25:49.362+02:00  INFO 22196 --- [city-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-18T20:25:49.783+02:00  INFO 22196 --- [city-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-18T20:25:49.829+02:00  INFO 22196 --- [city-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-18T20:25:50.442+02:00  INFO 22196 --- [city-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e79c25
+2025-06-18T20:25:50.444+02:00  INFO 22196 --- [city-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-18T20:25:50.500+02:00  WARN 22196 --- [city-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-18T20:25:50.562+02:00  INFO 22196 --- [city-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-18T20:25:51.512+02:00  INFO 22196 --- [city-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-18T20:25:51.660+02:00  INFO 22196 --- [city-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-18T20:25:52.229+02:00  INFO 22196 --- [city-service] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-18T20:25:52.559+02:00  WARN 22196 --- [city-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-18T20:25:53.582+02:00  INFO 22196 --- [city-service] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-06-18T20:25:53.582+02:00  INFO 22196 --- [city-service] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-06-18T20:25:53.591+02:00  INFO 22196 --- [city-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2025-06-18T20:25:53.610+02:00  INFO 22196 --- [city-service] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 27 ms
+2025-06-18T20:25:53.716+02:00  INFO 22196 --- [city-service] [           main] service.CityServiceTest                  : Started CityServiceTest in 7.195 seconds (process running for 8.308)
+Hibernate: 
+    select
+        c1_0.id 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        cities
+        (city_name, geographic_info) 
+    values
+        (?, ?)
+Hibernate: 
+    update
+        cities 
+    set
+        city_name=?,
+        geographic_info=? 
+    where
+        id=?
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/cities
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"145"]
+             Body = {
+    "cityName": "Paris",
+    "geographicInfo": {
+        "latitude": 48.8566,
+        "longitude": 2.3522,
+        "country": "France"
+    }
+}
+
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#createCity(City)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"cityName":"Paris","geographicInfo":{"latitude":48.8566,"longitude":2.3522,"country":"France"}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Paris créé avec ID: 1
+]]></system-out>
+  </testcase>
+  <testcase name="testCreateOtherCities" classname="service.CityServiceTest" time="0.17">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        cities
+        (city_name, geographic_info) 
+    values
+        (?, ?)
+Hibernate: 
+    update
+        cities 
+    set
+        city_name=?,
+        geographic_info=? 
+    where
+        id=?
+Hibernate: 
+    select
+        c1_0.id 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        cities
+        (city_name, geographic_info) 
+    values
+        (?, ?)
+Hibernate: 
+    update
+        cities 
+    set
+        city_name=?,
+        geographic_info=? 
+    where
+        id=?
+Lyon créé avec ID: 2
+Versailles créé avec ID: 3
+]]></system-out>
+  </testcase>
+  <testcase name="testGetAllCities" classname="service.CityServiceTest" time="0.145">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getAllCities()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":1,"cityName":"Paris","geographicInfo":{"latitude":48.8566,"longitude":2.3522,"country":"France"}},{"id":2,"cityName":"Lyon","geographicInfo":{"latitude":45.764,"longitude":4.8357,"country":"France"}},{"id":3,"cityName":"Versailles","geographicInfo":{"latitude":48.8014,"longitude":2.1301,"country":"France"}}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Récupération de toutes les villes réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testGetCityById" classname="service.CityServiceTest" time="0.077">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        c1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/1
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getCityById(Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"cityName":"Paris","geographicInfo":{"latitude":48.8566,"longitude":2.3522,"country":"France"}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Récupération de Paris par ID réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testSearchCityByName" classname="service.CityServiceTest" time="0.042">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/search
+       Parameters = {name=[Lyon]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getCityByName(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":2,"cityName":"Lyon","geographicInfo":{"latitude":45.764,"longitude":4.8357,"country":"France"}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Recherche de Lyon par nom réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testNearbyCities" classname="service.CityServiceTest" time="0.108">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        cities c 
+    WHERE
+        (
+            6371 * acos(     cos(radians(?)) *     cos(radians(CAST(c.geographic_info->>'latitude' AS DOUBLE PRECISION))) *     cos(radians(CAST(c.geographic_info->>'longitude' AS DOUBLE PRECISION)) - radians(?)) +     sin(radians(?)) *     sin(radians(CAST(c.geographic_info->>'latitude' AS DOUBLE PRECISION))) )
+        ) <= ? 
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/nearby
+       Parameters = {city=[Paris], radius=[50]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getCitiesWithinRadius(String, Double)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":1,"cityName":"Paris","geographicInfo":{"latitude":48.8566,"longitude":2.3522,"country":"France"}},{"id":3,"cityName":"Versailles","geographicInfo":{"latitude":48.8014,"longitude":2.1301,"country":"France"}}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+REQUÊTE NOSQL 1: Villes proches de Paris trouvées
+]]></system-out>
+  </testcase>
+  <testcase name="testDistanceBetweenCities" classname="service.CityServiceTest" time="0.067">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/distance
+       Parameters = {city1=[Paris], city2=[Lyon]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#calculateDistance(String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"cityName1":"Paris","cityName2":"Lyon","distanceKm":391.9290827528509,"travelTimeHours":4.8991135344106365,"travelTimeFormatted":"4h 53min","distanceRounded":391.93}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+REQUÊTE NOSQL 4: Distance Paris-Lyon calculée
+]]></system-out>
+  </testcase>
+  <testcase name="testGetCitiesByCountry" classname="service.CityServiceTest" time="0.031">
+    <system-out><![CDATA[Hibernate: 
+    SELECT
+        * 
+    FROM
+        cities c 
+    WHERE
+        c.geographic_info->>'country' = ?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/country/France
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getCitiesByCountry(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":1,"cityName":"Paris","geographicInfo":{"latitude":48.8566,"longitude":2.3522,"country":"France"}},{"id":2,"cityName":"Lyon","geographicInfo":{"latitude":45.764,"longitude":4.8357,"country":"France"}},{"id":3,"cityName":"Versailles","geographicInfo":{"latitude":48.8014,"longitude":2.1301,"country":"France"}}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Recherche par pays 'France' réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testUpdateCity" classname="service.CityServiceTest" time="0.082">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    update
+        cities 
+    set
+        city_name=?,
+        geographic_info=? 
+    where
+        id=?
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/cities/1
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"154"]
+             Body = {
+    "cityName": "Paris Capitale",
+    "geographicInfo": {
+        "latitude": 48.8566,
+        "longitude": 2.3522,
+        "country": "France"
+    }
+}
+
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#updateCity(Long, City)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"cityName":"Paris Capitale","geographicInfo":{"latitude":48.8566,"longitude":2.3522,"country":"France"}}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Mise à jour de Paris réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testErrorCases" classname="service.CityServiceTest" time="0.144">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        c1_0.id=?
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/99999
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getCityById(Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/search
+       Parameters = {name=[VilleInexistante]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#getCityByName(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/distance
+       Parameters = {city1=[Paris], city2=[VilleInexistante]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#calculateDistance(String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Gestion d'erreurs validée
+]]></system-out>
+  </testcase>
+  <testcase name="testDuplicateCity" classname="service.CityServiceTest" time="0.038">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?) 
+    fetch
+        first ? rows only
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/cities
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"154"]
+             Body = {
+    "cityName": "Paris Capitale",
+    "geographicInfo": {
+        "latitude": 48.8566,
+        "longitude": 2.3522,
+        "country": "France"
+    }
+}
+
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#createCity(City)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Validation doublons réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testHealthEndpoint" classname="service.CityServiceTest" time="0.014">
+    <system-out><![CDATA[
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/cities/health
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#health()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"24"]
+     Content type = text/plain;charset=UTF-8
+             Body = City Service is running!
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Endpoint santé fonctionnel
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteCity" classname="service.CityServiceTest" time="0.882">
+    <system-out><![CDATA[Hibernate: 
+    select
+        c1_0.id 
+    from
+        cities c1_0 
+    where
+        upper(c1_0.city_name)=upper(?) 
+    fetch
+        first ? rows only
+Hibernate: 
+    insert 
+    into
+        cities
+        (city_name, geographic_info) 
+    values
+        (?, ?)
+Hibernate: 
+    update
+        cities 
+    set
+        city_name=?,
+        geographic_info=? 
+    where
+        id=?
+Hibernate: 
+    select
+        count(*) 
+    from
+        cities c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        c1_0.id=?
+Hibernate: 
+    update
+        cities 
+    set
+        city_name=?,
+        geographic_info=? 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        cities 
+    where
+        id=?
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /api/cities/4
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = controller.CityController
+           Method = controller.CityController#deleteCity(Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 204
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Hibernate: 
+    select
+        c1_0.id,
+        c1_0.city_name,
+        c1_0.geographic_info 
+    from
+        cities c1_0 
+    where
+        c1_0.id=?
+Suppression de ville réussie
+]]></system-out>
+  </testcase>
+  <testcase name="testSummary" classname="service.CityServiceTest" time="0.006">
+    <system-out><![CDATA[
+==================================================
+📋 RÉSUMÉ TESTS CITY-SERVICE
+==================================================
+CRUD Complet: CREATE, READ, UPDATE, DELETE
+Requête NoSQL 1: Villes dans un rayon donné
+Requête NoSQL 4: Distance entre 2 villes
+Validations: Doublons, erreurs, santé
+Base PostgreSQL + JSON fonctionnelle
+==================================================
+]]></system-out>
+  </testcase>
+</testsuite>
