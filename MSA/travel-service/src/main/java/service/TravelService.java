@@ -228,6 +228,10 @@ public class TravelService {
             dayDto.setDayNumber(nextDayNumber);
         }
 
+        Double calculatedBudget = calculateDailyBudget(dayDto.getPlannedActivityIds());
+
+        Double finalBudget = dayDto.getDailyBudget() != null ? dayDto.getDailyBudget() : calculatedBudget;
+
         TravelDay travelDay = new TravelDay(dayDto.getDate(), dayDto.getDayNumber());
 
         // Définir l'hébergement si ce n'est pas le dernier jour
@@ -241,7 +245,7 @@ public class TravelService {
         travelDay.setPlannedActivityIds(dayDto.getPlannedActivityIds() != null ?
                 dayDto.getPlannedActivityIds() : new ArrayList<>());
         travelDay.setDayDescription(dayDto.getDayDescription());
-        travelDay.setDailyBudget(dayDto.getDailyBudget());
+        travelDay.setDailyBudget(finalBudget);
 
         // Sauvegarder le TravelDay
         TravelDay savedDay = travelDayRepository.save(travelDay);
@@ -261,7 +265,11 @@ public class TravelService {
 
         existingDay.setPlannedActivityIds(dayDto.getPlannedActivityIds());
         existingDay.setDayDescription(dayDto.getDayDescription());
-        existingDay.setDailyBudget(dayDto.getDailyBudget());
+
+        Double calculatedBudget = calculateDailyBudget(dayDto.getPlannedActivityIds());
+        Double finalBudget = dayDto.getDailyBudget() != null ? dayDto.getDailyBudget() : calculatedBudget;
+
+        existingDay.setDailyBudget(finalBudget);
 
         return travelDayRepository.save(existingDay);
     }
@@ -271,6 +279,51 @@ public class TravelService {
             throw new IllegalArgumentException("Travel day with ID " + dayId + " not found");
         }
         travelDayRepository.deleteById(dayId);
+    }
+
+    /**
+     * Calcule le budget quotidien en récupérant les prix des activités
+     */
+    public Double calculateDailyBudget(List<String> activityIds) {
+        if (activityIds == null || activityIds.isEmpty()) {
+            return 0.0;
+        }
+
+        double totalPrice = 0.0;
+
+        for (String activityId : activityIds) {
+            try {
+                String url = tourismServiceUrl + "/api/tourism/activities/" + activityId;
+                Map<String, Object> activity = restTemplate.getForObject(url, Map.class);
+
+                if (activity != null && activity.get("price") != null) {
+                    Double price = ((Number) activity.get("price")).doubleValue();
+                    totalPrice += price;
+                    System.out.println("Activité " + activityId + " - Prix: " + price + "€");
+                }
+            } catch (HttpClientErrorException.NotFound e) {
+                System.err.println("Activité " + activityId + " non trouvée");
+                throw new IllegalArgumentException("Activité avec ID '" + activityId + "' introuvable");
+            } catch (Exception e) {
+                System.err.println("Erreur lors de la récupération du prix pour l'activité " + activityId + ": " + e.getMessage());
+                throw new RuntimeException("Impossible de calculer le budget: " + e.getMessage());
+            }
+        }
+
+        return Math.round(totalPrice * 100.0) / 100.0;
+    }
+
+    /**
+     * Méthode pour recalculer le budget d'une journée existante
+     */
+    public TravelDay recalculateDailyBudget(Long dayId) {
+        TravelDay existingDay = travelDayRepository.findById(dayId)
+                .orElseThrow(() -> new IllegalArgumentException("Travel day with ID " + dayId + " not found"));
+
+        Double newBudget = calculateDailyBudget(existingDay.getPlannedActivityIds());
+        existingDay.setDailyBudget(newBudget);
+
+        return travelDayRepository.save(existingDay);
     }
 
     // REQUÊTES NOSQL
